@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RainyEmps 🌧️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef4f8;
+    color: #17212b;
+}
+
+header {
+    background: linear-gradient(135deg, #16283a, #315b78);
+    color: white;
+    padding: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+}
+
+.header {
+    max-width: 950px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.logo span {
+    color: #75c8ff;
+}
+
+.cash {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.container {
+    max-width: 950px;
+    margin: auto;
+    padding: 18px;
+}
+
+.hero {
+    background: white;
+    border-radius: 22px;
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 5px 20px rgba(20,50,70,0.08);
+}
+
+.hero h1 {
+    margin: 0 0 8px;
+    font-size: 27px;
+}
+
+.hero p {
+    margin: 0;
+    color: #65727d;
+    line-height: 1.5;
+}
+
+.level-row {
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.progress {
+    height: 12px;
+    background: #dce5eb;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #55aee8;
+    transition: width 0.4s;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.stat {
+    background: white;
+    border-radius: 17px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(20,50,70,0.07);
+}
+
+.stat-icon {
+    font-size: 28px;
+}
+
+.stat-number {
+    font-size: 19px;
+    font-weight: 900;
+    margin-top: 5px;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #74818c;
+    margin-top: 3px;
+}
+
+.section-title {
+    margin: 25px 0 12px;
+}
+
+.business {
+    background: white;
+    border-radius: 20px;
+    padding: 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 16px rgba(20,50,70,0.07);
+}
+
+.business-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.business-title {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.business-icon {
+    font-size: 38px;
+}
+
+.description {
+    color: #74818c;
+    font-size: 13px;
+    margin: 5px 0 15px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.info {
+    background: #f1f5f8;
+    padding: 9px;
+    border-radius: 11px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.info strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
+button {
+    width: 100%;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+button:disabled {
+    background: #cbd3d9 !important;
+    color: #6d7780 !important;
+    cursor: not-allowed;
+}
+
+.buy {
+    background: #17283a;
+    color: white;
+}
+
+.upgrade {
+    background: #65bdf2;
+    color: #08243a;
+    margin-top: 8px;
+}
+
+.worker {
+    background: #dff3ff;
+    color: #07527e;
+    margin-top: 8px;
+}
+
+.owned {
+    color: #19945b;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.achievements {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.achievement {
+    background: white;
+    border-radius: 17px;
+    padding: 15px;
+    opacity: 0.38;
+    box-shadow: 0 4px 15px rgba(20,50,70,0.06);
+}
+
+.achievement.unlocked {
+    opacity: 1;
+    outline: 2px solid #65bdf2;
+}
+
+.achievement-icon {
+    font-size: 29px;
+}
+
+.achievement-name {
+    font-weight: 900;
+    margin-top: 5px;
+}
+
+.achievement-description {
+    color: #74818c;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.bonus {
+    flex: 1;
+    background: #19945b;
+    color: white;
+}
+
+.reset {
+    width: auto;
+    background: #ffe1e1;
+    color: #9d2020;
+}
+
+.popup {
+    position: fixed;
+    left: 50%;
+    bottom: 25px;
+    transform: translate(-50%, 150px);
+    width: calc(100% - 35px);
+    max-width: 500px;
+    background: #17283a;
+    color: white;
+    padding: 15px 18px;
+    border-radius: 16px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 100;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+    transition: transform 0.35s;
+}
+
+.popup.show {
+    transform: translate(-50%, 0);
+}
+
+footer {
+    text-align: center;
+    color: #87949e;
+    font-size: 13px;
+    padding: 30px 10px;
+}
+
+@media (max-width: 700px) {
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .achievements {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 430px) {
+
+    .cash {
+        font-size: 16px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header">
+        <div class="logo">
+            Rainy<span>Emps</span> 🌧️
+        </div>
+
+        <div class="cash" id="cash">
+            £100
+        </div>
+    </div>
+</header>
+
+
+<main class="container">
+
+    <section class="hero">
+
+        <h1>
+            Build your empire. 🌧️💼
+        </h1>
+
+        <p>
+            Start with £100, build businesses, hire employees,
+            make millions and become the ultimate RainyEmps boss.
+        </p>
+
+        <div class="level-row">
+            <span>
+                Company Level
+            </span>
+
+            <span id="level">
+                1
+            </span>
+        </div>
+
+        <div class="progress">
+            <div
+                class="progress-bar"
+                id="progress">
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="stats">
+
+        <div class="stat">
+            <div class="stat-icon">💷</div>
+
+            <div
+                class="stat-number"
+                id="income">
+                £0/s
+            </div>
+
+            <div class="stat-label">
+                Income
+            </div>
+        </div>
+
+
+        <div class="stat">
+            <div class="stat-icon">🏢</div>
+
+            <div
+                class="stat-number"
+                id="businessCount">
+                0
+            </div>
+
+            <div class="stat-label">
+                Businesses
+            </div>
+        </div>
+
+
+        <div class="stat">
+            <div class="stat-icon">👷</div>
+
+            <div
+                class="stat-number"
+                id="workerCount">
+                0
+            </div>
+
+            <div class="stat-label">
+                Employees
+            </div>
+        </div>
+
+
+        <div class="stat">
+            <div class="stat-icon">📈</div>
+
+            <div
+                class="stat-number"
+                id="totalEarned">
+                £0
+            </div>
+
+            <div class="stat-label">
+                Total Earned
+            </div>
+        </div>
+
+    </section>
+
+
+    <h2 class="section-title">
+        🏢 Your Companies
+    </h2>
+
+    <div id="businesses"></div>
+
+
+    <h2 class="section-title">
+        🏆 Achievements
+    </h2>
+
+    <div
+        class="achievements"
+        id="achievements">
+    </div>
+
+
+    <div class="controls">
+
+        <button
+            class="bonus"
+            onclick="dailyBonus()">
+            🎁 Daily Bonus
+        </button>
+
+        <button
+            class="reset"
+            onclick="resetGame()">
+            Reset
+        </button>
+
+    </div>
+
+</main>
+
+
+<div
+    class="popup"
+    id="popup">
+</div>
+
+
+<footer>
+    RainyEmps 🌧️ — Build it. Grow it. Own it.
+</footer>
+
+
+<script>
+
+/* =====================================
+   BUSINESS DATA
+===================================== */
+
+const businesses = [
+
+    {
+        id: "lemonade",
+        name: "Lemonade Stand",
+        icon: "🍋",
+        description: "Your first step into the business world.",
+        price: 50,
+        income: 2,
+        upgrade: 75,
+        worker: 100
+    },
+
+    {
+        id: "bakery",
+        name: "Rainy Bakery",
+        icon: "🥐",
+        description: "Bake delicious treats and make money.",
+        price: 500,
+        income: 15,
+        upgrade: 650,
+        worker: 800
+    },
+
+    {
+        id: "cafe",
+        name: "Rainy Café",
+        icon: "☕",
+        description: "A cosy café for your growing empire.",
+        price: 2500,
+        income: 70,
+        upgrade: 3000,
+        worker: 3500
+    },
+
+    {
+        id: "fashion",
+        name: "Fashion Store",
+        icon: "👕",
+        description: "Create your own fashion empire.",
+        price: 10000,
+        income: 250,
+        upgrade: 12000,
+        worker: 15000
+    },
+
+    {
+        id: "tech",
+        name: "Tech Company",
+        icon: "💻",
+        description: "Build the next giant technology company.",
+        price: 50000,
+        income: 1000,
+        upgrade: 60000,
+        worker: 75000
+    },
+
+    {
+        id: "hotel",
+        name: "Luxury Hotel",
+        icon: "🏨",
+        description: "Own a five-star hotel.",
+        price: 250000,
+        income: 5000,
+        upgrade: 300000,
+        worker: 350000
+    },
+
+    {
+        id: "airline",
+        name: "Rainy Airlines",
+        icon: "✈️",
+        description: "Take your company around the world.",
+        price: 1000000,
+        income: 20000,
+        upgrade: 1200000,
+        worker: 1500000
+    },
+
+    {
+        id: "space",
+        name: "Rainy Space",
+        icon: "🚀",
+        description: "Your company has reached the stars.",
+        price: 10000000,
+        income: 150000,
+        upgrade: 12000000,
+        worker: 15000000
+    }
+
+];
+
+
+/* =====================================
+   GAME
+===================================== */
+
+let game = {
+
+    money: 100,
+
+    totalEarned: 0,
+
+    workers: 0,
+
+    lastBonus: 0,
+
+    businesses: {},
+
+    achievements: {}
+
+};
+
+
+/* =====================================
+   LOAD SAVE
+===================================== */
+
+const savedGame =
+    localStorage.getItem("rainyemps-save");
+
+if (savedGame) {
+
+    try {
+
+        game = JSON.parse(savedGame);
+
+    } catch {
+
+        console.log("Save failed.");
+
+    }
+
+}
+
+
+/* =====================================
+   CREATE BUSINESS DATA
+===================================== */
+
+businesses.forEach(business => {
+
+    if (!game.businesses[business.id]) {
+
+        game.businesses[business.id] = {
+
+            owned: 0,
+
+            upgrades: 0,
+
+            workers: 0
+
+        };
+
+    }
+
+});
+
+
+/* =====================================
+   MONEY FORMAT
+===================================== */
+
+function formatMoney(value) {
+
+    if (value >= 1000000000) {
+
+        return "£" +
+            (value / 1000000000)
+            .toFixed(1) +
+            "B";
+
+    }
+
+    if (value >= 1000000) {
+
+        return "£" +
+            (value / 1000000)
+            .toFixed(1) +
+            "M";
+
+    }
+
+    if (value >= 1000) {
+
+        return "£" +
+            (value / 1000)
+            .toFixed(1) +
+            "K";
+
+    }
+
+    return "£" +
+        Math.floor(value)
+        .toLocaleString();
+
+}
+
+
+/* =====================================
+   TOTAL BUSINESSES
+===================================== */
+
+function totalBusinesses() {
+
+    return businesses.reduce(
+
+        (total, business) => {
+
+            return total +
+                game.businesses[business.id].owned;
+
+        },
+
+        0
+
+    );
+
+}
+
+
+/* =====================================
+   INCOME
+===================================== */
+
+function getIncome() {
+
+    let total = 0;
+
+    businesses.forEach(business => {
+
+        const data =
+            game.businesses[business.id];
+
+        if (data.owned > 0) {
+
+            let amount =
+                business.income *
+                data.owned;
+
+            amount *=
+                Math.pow(1.5, data.upgrades);
+
+            amount *=
+                1 +
+                (data.workers * 0.25);
+
+            total += amount;
+
+        }
+
+    });
+
+    return total;
+
+}
+
+
+/* =====================================
+   BUY BUSINESS
+===================================== */
+
+function buyBusiness(id) {
+
+    const business =
+        businesses.find(
+            b => b.id === id
+        );
+
+    const data =
+        game.businesses[id];
+
+    if (game.money < business.price) {
+
+        popup(
+            "❌ You don't have enough money!"
+        );
+
+        return;
+
+    }
+
+    game.money -= business.price;
+
+    data.owned++;
+
+    popup(
+        "🎉 You bought " +
+        business.name +
+        "!"
+    );
+
+    save();
+
+    render();
+
+}
+
+
+/* =====================================
+   UPGRADE
+===================================== */
+
+function upgradeBusiness(id) {
+
+    const business =
+        businesses.find(
+            b => b.id === id
+        );
+
+    const data =
+        game.businesses[id];
+
+    const price =
+        business.upgrade *
+        Math.pow(
+            1.7,
+            data.upgrades
+        );
+
+    if (game.money < price) {
+
+        popup(
+            "❌ You can't afford this upgrade!"
+        );
+
+        return;
+
+    }
+
+    game.money -= price;
+
+    data.upgrades++;
+
+    popup(
+        "⬆️ " +
+        business.name +
+        " upgraded!"
+    );
+
+    save();
+
+    render();
+
+}
+
+
+/* =====================================
+   HIRE WORKER
+===================================== */
+
+function hireWorker(id) {
+
+    const business =
+        businesses.find(
+            b => b.id === id
+        );
+
+    const data =
+        game.businesses[id];
+
+    const price =
+        business.worker *
+        Math.pow(
+            1.5,
+            data.workers
+        );
+
+    if (game.money < price) {
+
+        popup(
+            "❌ You can't afford another employee!"
+        );
+
+        return;
+
+    }
+
+    game.money -= price;
+
+    data.workers++;
+
+    game.workers++;
+
+    popup(
+        "👷 Employee hired!"
+    );
+
+    save();
+
+    render();
+
+}
+
+
+/* =====================================
+   RENDER BUSINESSES
+===================================== */
+
+function renderBusinesses() {
+
+    const container =
+        document.getElementById(
+            "businesses"
+        );
+
+    container.innerHTML = "";
+
+
+    businesses.forEach(business => {
+
+        const data =
+            game.businesses[business.id];
+
+
+        const upgradePrice =
+            business.upgrade *
+            Math.pow(
+                1.7,
+                data.upgrades
+            );
+
+
+        const workerPrice =
+            business.worker *
+            Math.pow(
+                1.5,
+                data.workers
+            );
+
+
+        const currentIncome =
+            business.income *
+            data.owned *
+            Math.pow(
+                1.5,
+                data.upgrades
+            ) *
+            (1 + data.workers * 0.25);
+
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+        card.className =
+            "business";
+
+
+        card.innerHTML = `
+
+            <div class="business-head">
+
+                <div>
+
+                    <div class="business-title">
+                        ${business.name}
+                    </div>
+
+                    <div class="description">
+                        ${business.description}
+                    </div>
+
+                </div>
+
+                <div class="business-icon">
+                    ${business.icon}
+                </div>
+
+            </div>
+
+
+            <div class="info-grid">
+
+                <div class="info">
+
+                    <strong>
+                        ${data.owned}
+                    </strong>
+
+                    Owned
+
+                </div>
+
+
+                <div class="info">
+
+                    <strong>
+                        ${formatMoney(currentIncome)}
+                    </strong>
+
+                    Per Second
+
+                </div>
+
+
+                <div class="info">
+
+                    <strong>
+                        ${data.workers}
+                    </strong>
+
+                    Employees
+
+                </div>
+
+            </div>
+
+
+            ${
+                data.owned === 0
+
+                ?
+
+                `
+
+                <button
+                    class="buy"
+                    onclick="buyBusiness('${business.id}')"
+                    ${game.money < business.price ? "disabled" : ""}
+                >
+
+                    🏢 Buy for
+                    ${formatMoney(business.price)}
+
+                </button>
+
+                `
+
+                :
+
+                `
+
+                <div class="owned">
+                    ✓ You own ${data.owned}
+                </div>
+
+
+                <button
+                    class="upgrade"
+                    onclick="upgradeBusiness('${business.id}')"
+                    ${game.money < upgradePrice ? "disabled" : ""}
+                >
+
+                    ⬆️ Upgrade —
+                    ${formatMoney(upgradePrice)}
+
+                </button>
+
+
+                <button
+                    class="worker"
+                    onclick="hireWorker('${business.id}')"
+                    ${game.money < workerPrice ? "disabled" : ""}
+                >
+
+                    👷 Hire Employee —
+                    ${formatMoney(workerPrice)}
+
+                </button>
+
+                `
+            }
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* =====================================
+   ACHIEVEMENTS
+===================================== */
+
+const achievementData = [
+
+    {
+        id: "first",
+        icon: "🎉",
+        name: "First Business",
+        description: "Buy your first business.",
+        check: () =>
+            totalBusinesses() >= 1
+    },
+
+    {
+        id: "five",
+        icon: "🏢",
+        name: "Business Empire",
+        description: "Own 5 businesses.",
+        check: () =>
+            totalBusinesses() >= 5
+    },
+
+    {
+        id: "employee",
+        icon: "👷",
+        name: "Team Builder",
+        description: "Hire your first employee.",
+        check: () =>
+            game.workers >= 1
+    },
+
+    {
+        id: "thousand",
+        icon: "💷",
+        name: "£1K Club",
+        description: "Earn £1,000.",
+        check: () =>
+            game.totalEarned >= 1000
+    },
+
+    {
+        id: "million",
+        icon: "💰",
+        name: "Millionaire",
+        description: "Earn £1 million.",
+        check: () =>
+            game.totalEarned >= 1000000
+    },
+
+    {
+        id: "billion",
+        icon: "👑",
+        name: "Billionaire",
+        description: "Earn £1 billion.",
+        check: () =>
+            game.totalEarned >= 1000000000
+    },
+
+    {
+        id: "all",
+        icon: "🌎",
+        name: "Global Empire",
+        description: "Own every type of business.",
+        check: () =>
+            businesses.every(
+                business =>
+                    game.businesses[
+                        business.id
+                    ].owned > 0
+            )
+    }
+
+];
+
+
+function renderAchievements() {
+
+    const container =
+        document.getElementById(
+            "achievements"
+        );
+
+    container.innerHTML = "";
+
+
+    achievementData.forEach(
+        achievement => {
+
+            const unlocked =
+                achievement.check();
+
+
+            if (
+                unlocked &&
+                !game.achievements[
+                    achievement.id
+                ]
+            ) {
+
+                game.achievements[
+                    achievement.id
+                ] = true;
+
+                popup(
+                    "🏆 Achievement unlocked: " +
+                    achievement.name
+                );
+
+            }
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+            card.className =
+                "achievement " +
+                (
+                    unlocked
+                    ? "unlocked"
+                    : ""
+                );
+
+
+            card.innerHTML = `
+
+                <div class="achievement-icon">
+                    ${achievement.icon}
+                </div>
+
+                <div class="achievement-name">
+                    ${achievement.name}
+                </div>
+
+                <div class="achievement-description">
+                    ${achievement.description}
+                </div>
+
+            `;
+
+
+            container.appendChild(card);
+
+        }
+    );
+
+}
+
+
+/* =====================================
+   LEVEL
+===================================== */
+
+function getLevel() {
+
+    return Math.max(
+
+        1,
+
+        Math.floor(
+            Math.sqrt(
+                game.totalEarned / 100
+            )
+        ) + 1
+
+    );
+
+}
+
+
+function renderLevel() {
+
+    const level =
+        getLevel();
+
+
+    document.getElementById(
+        "level"
+    ).textContent = level;
+
+
+    const progress =
+        game.totalEarned % 10000;
+
+
+    document.getElementById(
+        "progress"
+    ).style.width =
+
+        Math.min(
+            100,
+            progress / 100
+        ) + "%";
+
+}
+
+
+/* =====================================
+   DAILY BONUS
+===================================== */
+
+function dailyBonus() {
+
+    const now =
+        Date.now();
+
+    const day =
+        86400000;
+
+
+    if (
+        game.lastBonus &&
+        now - game.lastBonus < day
+    ) {
+
+        const remaining =
+            day -
+            (
+                now -
+                game.lastBonus
+            );
+
+
+        const hours =
+            Math.ceil(
+                remaining / 3600000
+            );
+
+
+        popup(
+            "⏰ Your next bonus is in " +
+            hours +
+            " hours."
+        );
+
+        return;
+
+    }
+
+
+    const bonus =
+        100 +
+        getLevel() * 100;
+
+
+    game.money += bonus;
+
+    game.totalEarned += bonus;
+
+    game.lastBonus =
+        now;
+
+
+    popup(
+        "🎁 Daily bonus: +" +
+        formatMoney(bonus)
+    );
+
+
+    save();
+
+    render();
+
+}
+
+
+/* =====================================
+   RANDOM EVENTS
+===================================== */
+
+function randomEvent() {
+
+    if (
+        totalBusinesses() === 0 ||
+        Math.random() > 0.08
+    ) {
+
+        return;
+
+    }
+
+
+    const income =
+        getIncome();
+
+
+    const events = [
+
+        {
+            text:
+                "🔥 Your company went viral!",
+            amount:
+                Math.max(
+                    100,
+                    income * 20
+                )
+        },
+
+        {
+            text:
+                "🎉 A customer made a huge purchase!",
+            amount:
+                Math.max(
+                    50,
+                    income * 10
+                )
+        },
+
+        {
+            text:
+                "📈 Your company had a record day!",
+            amount:
+                Math.max(
+                    150,
+                    income * 30
+                )
+        },
+
+        {
+            text:
+                "🌧️ Rainy weather boosted your sales!",
+            amount:
+                Math.max(
+                    75,
+                    income * 15
+                )
+        }
+
+    ];
+
+
+    const event =
+        events[
+            Math.floor(
+                Math.random() *
+                events.length
+            )
+        ];
+
+
+    game.money +=
+        event.amount;
+
+
+    game.totalEarned +=
+        event.amount;
+
+
+    popup(
+        event.text +
+        " +" +
+        formatMoney(event.amount)
+    );
+
+
+    save();
+
+    render();
+
+}
+
+
+/* =====================================
+   POPUP
+===================================== */
+
+let popupTimer;
+
+
+function popup(text) {
+
+    const box =
+        document.getElementById(
+            "popup"
+        );
+
+
+    box.textContent =
+        text;
+
+
+    box.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        popupTimer
+    );
+
+
+    popupTimer =
+        setTimeout(
+            () => {
+
+                box.classList.remove(
+                    "show"
+                );
+
+            },
+            3000
+        );
+
+}
+
+
+/* =====================================
+   SAVE
+===================================== */
+
+function save() {
+
+    localStorage.setItem(
+        "rainyemps-save",
+        JSON.stringify(game)
+    );
+
+}
+
+
+/* =====================================
+   RESET
+===================================== */
+
+function resetGame() {
+
+    const confirmed =
+        confirm(
+            "Reset your RainyEmps empire?"
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    localStorage.removeItem(
+        "rainyemps-save"
+    );
+
+
+    location.reload();
+
+}
+
+
+/* =====================================
+   RENDER
+===================================== */
+
+function render() {
+
+    document.getElementById(
+        "cash"
+    ).textContent =
+        formatMoney(game.money);
+
+
+    document.getElementById(
+        "income"
+    ).textContent =
+        formatMoney(getIncome()) +
+        "/s";
+
+
+    document.getElementById(
+        "businessCount"
+    ).textContent =
+        totalBusinesses();
+
+
+    document.getElementById(
+        "workerCount"
+    ).textContent =
+        game.workers;
+
+
+    document.getElementById(
+        "totalEarned"
+    ).textContent =
+        formatMoney(
+            game.totalEarned
+        );
+
+
+    renderLevel();
+
+    renderBusinesses();
+
+    renderAchievements();
+
+}
+
+
+/* =====================================
+   PASSIVE INCOME
+===================================== */
+
+setInterval(
+
+    () => {
+
+        const income =
+            getIncome();
+
+
+        if (income > 0) {
+
+            game.money +=
+                income;
+
+            game.totalEarned +=
+                income;
+
+            save();
+
+            render();
+
+        }
+
+    },
+
+    1000
+
+);
+
+
+/* =====================================
+   RANDOM EVENT TIMER
+===================================== */
+
+setInterval(
+    randomEvent,
+    12000
+);
+
+
+/* =====================================
+   START GAME
+===================================== */
+
+render();
+
+</script>
+
+</body>
+</html>
