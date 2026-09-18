@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script data-goatcounter="https://rainylabss.goatcounter.com/count"
+    <script data-goatcounter="https://rainylabss.goatcounter.com/count.js"
         async src="//gc.zgo.at/count.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +9,7 @@
 <title>RainyEmps 🌧️</title>
 
 <style>
-
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
@@ -274,8 +271,6 @@ button:disabled {
     color: white;
 }
 
-/* NEW SAVE BUTTON */
-
 .save-button {
     flex: 1;
     background: #65bdf2;
@@ -318,7 +313,6 @@ footer {
 }
 
 @media (max-width: 700px) {
-
     .stats {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -326,11 +320,9 @@ footer {
     .achievements {
         grid-template-columns: 1fr;
     }
-
 }
 
 @media (max-width: 430px) {
-
     .cash {
         font-size: 16px;
     }
@@ -342,38 +334,23 @@ footer {
     .info-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-
     <div class="header">
-
-        <div class="logo">
-            Rainy<span>Emps</span> 🌧️
-        </div>
-
-        <div class="cash" id="cash">
-            £100
-        </div>
-
+        <div class="logo">Rainy<span>Emps</span> 🌧️</div>
+        <div class="cash" id="cash">£100</div>
     </div>
-
 </header>
-
 
 <main class="container">
 
     <section class="hero">
-
-        <h1>
-            Build your empire. 🌧️💼
-        </h1>
+        <h1>Build your empire. 🌧️💼</h1>
 
         <p>
             Start with £100, build businesses, hire employees,
@@ -381,181 +358,70 @@ footer {
         </p>
 
         <div class="level-row">
-
-            <span>
-                Company Level
-            </span>
-
-            <span id="level">
-                1
-            </span>
-
+            <span>Company Level</span>
+            <span id="level">1</span>
         </div>
 
         <div class="progress">
-
-            <div
-                class="progress-bar"
-                id="progress">
-            </div>
-
+            <div class="progress-bar" id="progress"></div>
         </div>
-
     </section>
-
 
     <section class="stats">
 
         <div class="stat">
-
-            <div class="stat-icon">
-                💷
-            </div>
-
-            <div
-                class="stat-number"
-                id="income">
-                £0/s
-            </div>
-
-            <div class="stat-label">
-                Income
-            </div>
-
+            <div class="stat-icon">💷</div>
+            <div class="stat-number" id="income">£0/s</div>
+            <div class="stat-label">Income</div>
         </div>
 
-
         <div class="stat">
-
-            <div class="stat-icon">
-                🏢
-            </div>
-
-            <div
-                class="stat-number"
-                id="businessCount">
-                0
-            </div>
-
-            <div class="stat-label">
-                Businesses
-            </div>
-
+            <div class="stat-icon">🏢</div>
+            <div class="stat-number" id="businessCount">0</div>
+            <div class="stat-label">Businesses</div>
         </div>
 
-
         <div class="stat">
-
-            <div class="stat-icon">
-                👷
-            </div>
-
-            <div
-                class="stat-number"
-                id="workerCount">
-                0
-            </div>
-
-            <div class="stat-label">
-                Employees
-            </div>
-
+            <div class="stat-icon">👷</div>
+            <div class="stat-number" id="workerCount">0</div>
+            <div class="stat-label">Employees</div>
         </div>
 
-
         <div class="stat">
-
-            <div class="stat-icon">
-                📈
-            </div>
-
-            <div
-                class="stat-number"
-                id="totalEarned">
-                £0
-            </div>
-
-            <div class="stat-label">
-                Total Earned
-            </div>
-
+            <div class="stat-icon">📈</div>
+            <div class="stat-number" id="totalEarned">£0</div>
+            <div class="stat-label">Total Earned</div>
         </div>
 
     </section>
 
-
-    <h2 class="section-title">
-        🏢 Your Companies
-    </h2>
+    <h2 class="section-title">🏢 Your Companies</h2>
 
     <div id="businesses"></div>
 
+    <h2 class="section-title">🏆 Achievements</h2>
 
-    <h2 class="section-title">
-        🏆 Achievements
-    </h2>
-
-    <div
-        class="achievements"
-        id="achievements">
-    </div>
-
+    <div class="achievements" id="achievements"></div>
 
     <div class="controls">
-
-        <button
-            class="bonus"
-            onclick="dailyBonus()">
-
-            🎁 Daily Bonus
-
-        </button>
-
-
-        <!-- NEW SAVE BUTTON -->
-
-        <button
-            class="save-button"
-            onclick="manualSave()">
-
-            💾 Save Game
-
-        </button>
-
-
-        <button
-            class="reset"
-            onclick="resetGame()">
-
-            Reset
-
-        </button>
-
+        <button class="bonus" onclick="dailyBonus()">🎁 Daily Bonus</button>
+        <button class="save-button" onclick="manualSave()">💾 Save Game</button>
+        <button class="reset" onclick="resetGame()">Reset</button>
     </div>
 
 </main>
 
-
-<div
-    class="popup"
-    id="popup">
-</div>
-
+<div class="popup" id="popup"></div>
 
 <footer>
-
     RainyEmps 🌧️ — Build it. Grow it. Own it.
-
 </footer>
-
 
 <script>
 
-/* =====================================
-   BUSINESS DATA
-===================================== */
-
 const businesses = [
+
+    /* ORIGINAL BUSINESSES */
 
     {
         id: "lemonade",
@@ -643,70 +509,268 @@ const businesses = [
         income: 150000,
         upgrade: 12000000,
         worker: 15000000
-    }
+    },
 
+    /* 20 NEW BUSINESSES */
+
+    {
+        id: "pizza",
+        name: "Rainy Pizza",
+        icon: "🍕",
+        description: "Build a pizza empire one slice at a time.",
+        price: 25000000,
+        income: 400000,
+        upgrade: 30000000,
+        worker: 35000000
+    },
+
+    {
+        id: "gaming",
+        name: "Gaming Store",
+        icon: "🎮",
+        description: "Sell games, consoles and gaming gear.",
+        price: 60000000,
+        income: 900000,
+        upgrade: 75000000,
+        worker: 90000000
+    },
+
+    {
+        id: "toys",
+        name: "Toy Company",
+        icon: "🧸",
+        description: "Create the toys everyone wants.",
+        price: 150000000,
+        income: 2000000,
+        upgrade: 190000000,
+        worker: 225000000
+    },
+
+    {
+        id: "phone",
+        name: "Phone Company",
+        icon: "📱",
+        description: "Create the next generation of smartphones.",
+        price: 350000000,
+        income: 5000000,
+        upgrade: 425000000,
+        worker: 525000000
+    },
+
+    {
+        id: "cars",
+        name: "Car Dealership",
+        icon: "🚗",
+        description: "Sell amazing cars and grow your dealership.",
+        price: 800000000,
+        income: 12000000,
+        upgrade: 1000000000,
+        worker: 1200000000
+    },
+
+    {
+        id: "property",
+        name: "Property Company",
+        icon: "🏠",
+        description: "Buy, build and sell valuable properties.",
+        price: 1800000000,
+        income: 30000000,
+        upgrade: 2200000000,
+        worker: 2700000000
+    },
+
+    {
+        id: "film",
+        name: "Film Studio",
+        icon: "🎬",
+        description: "Make blockbuster movies and TV shows.",
+        price: 4000000000,
+        income: 65000000,
+        upgrade: 4800000000,
+        worker: 5800000000
+    },
+
+    {
+        id: "music",
+        name: "Music Company",
+        icon: "🎵",
+        description: "Build a worldwide music empire.",
+        price: 8000000000,
+        income: 120000000,
+        upgrade: 9500000000,
+        worker: 11000000000
+    },
+
+    {
+        id: "supermarket",
+        name: "Supermarket",
+        icon: "🛒",
+        description: "Own a huge supermarket chain.",
+        price: 16000000000,
+        income: 220000000,
+        upgrade: 19000000000,
+        worker: 22000000000
+    },
+
+    {
+        id: "bank",
+        name: "Rainy Bank",
+        icon: "🏦",
+        description: "Become the boss of a massive bank.",
+        price: 30000000000,
+        income: 400000000,
+        upgrade: 35000000000,
+        worker: 42000000000
+    },
+
+    {
+        id: "construction",
+        name: "Construction Company",
+        icon: "🏗️",
+        description: "Build skyscrapers, homes and huge projects.",
+        price: 55000000000,
+        income: 700000000,
+        upgrade: 65000000000,
+        worker: 75000000000
+    },
+
+    {
+        id: "energy",
+        name: "Energy Company",
+        icon: "⚡",
+        description: "Power your growing business empire.",
+        price: 100000000000,
+        income: 1200000000,
+        upgrade: 120000000000,
+        worker: 140000000000
+    },
+
+    {
+        id: "shipping",
+        name: "Shipping Company",
+        icon: "🚢",
+        description: "Move products across the world.",
+        price: 180000000000,
+        income: 2000000000,
+        upgrade: 220000000000,
+        worker: 250000000000
+    },
+
+    {
+        id: "resort",
+        name: "Holiday Resort",
+        icon: "🏝️",
+        description: "Own luxury resorts around the world.",
+        price: 350000000000,
+        income: 4000000000,
+        upgrade: 420000000000,
+        worker: 500000000000
+    },
+
+    {
+        id: "racing",
+        name: "Racing Team",
+        icon: "🏎️",
+        description: "Compete in the world's biggest races.",
+        price: 700000000000,
+        income: 8000000000,
+        upgrade: 850000000000,
+        worker: 1000000000000
+    },
+
+    {
+        id: "satellite",
+        name: "Satellite Company",
+        icon: "🛰️",
+        description: "Build a business that reaches space.",
+        price: 1300000000000,
+        income: 15000000000,
+        upgrade: 1600000000000,
+        worker: 1900000000000
+    },
+
+    {
+        id: "ai",
+        name: "AI Corporation",
+        icon: "🤖",
+        description: "Create powerful artificial intelligence.",
+        price: 2500000000000,
+        income: 30000000000,
+        upgrade: 3000000000000,
+        worker: 3500000000000
+    },
+
+    {
+        id: "internet",
+        name: "Rainy Internet",
+        icon: "🌐",
+        description: "Build a global internet empire.",
+        price: 5000000000000,
+        income: 60000000000,
+        upgrade: 6000000000000,
+        worker: 7000000000000
+    },
+
+    {
+        id: "orins",
+        name: "Orins Gaming Factory",
+        icon: "🎮",
+        description: "A gigantic gaming factory producing the world's biggest games.",
+        price: 12000000000000,
+        income: 150000000000,
+        upgrade: 15000000000000,
+        worker: 18000000000000
+    },
+
+    {
+        id: "marks",
+        name: "Marks Noodle Factory",
+        icon: "🍜",
+        description: "The ultimate noodle factory and the most expensive business.",
+        price: 30000000000000,
+        income: 400000000000,
+        upgrade: 36000000000000,
+        worker: 45000000000000
+    }
 ];
 
 
-/* =====================================
-   GAME
-===================================== */
+/* GAME DATA */
 
 let game = {
-
     money: 100,
-
     totalEarned: 0,
-
     workers: 0,
-
     lastBonus: 0,
-
     businesses: {},
-
     achievements: {}
-
 };
 
 
-/* =====================================
-   LOAD SAVE
-===================================== */
+/* LOAD SAVE */
 
-const savedGame =
-    localStorage.getItem("rainyemps-save");
+const savedGame = localStorage.getItem("rainyemps-save");
 
 if (savedGame) {
-
     try {
-
         game = JSON.parse(savedGame);
-
-    } catch {
-
-        console.log("Save failed.");
-
     }
-
+    catch {
+        console.log("Save failed.");
+    }
 }
 
 
-/* =====================================
-   CREATE BUSINESS DATA
-===================================== */
+/* ADD NEW BUSINESSES TO EXISTING SAVES */
 
 businesses.forEach(business => {
 
     if (!game.businesses[business.id]) {
 
         game.businesses[business.id] = {
-
             owned: 0,
-
             upgrades: 0,
-
             workers: 0
-
         };
 
     }
@@ -714,71 +778,48 @@ businesses.forEach(business => {
 });
 
 
-/* =====================================
-   MONEY FORMAT
-===================================== */
+/* MONEY FORMAT */
 
 function formatMoney(value) {
 
+    if (value >= 1000000000000000) {
+        return "£" + (value / 1000000000000000).toFixed(1) + "Q";
+    }
+
+    if (value >= 1000000000000) {
+        return "£" + (value / 1000000000000).toFixed(1) + "T";
+    }
+
     if (value >= 1000000000) {
-
-        return "£" +
-            (value / 1000000000)
-            .toFixed(1) +
-            "B";
-
+        return "£" + (value / 1000000000).toFixed(1) + "B";
     }
 
     if (value >= 1000000) {
-
-        return "£" +
-            (value / 1000000)
-            .toFixed(1) +
-            "M";
-
+        return "£" + (value / 1000000).toFixed(1) + "M";
     }
 
     if (value >= 1000) {
-
-        return "£" +
-            (value / 1000)
-            .toFixed(1) +
-            "K";
-
+        return "£" + (value / 1000).toFixed(1) + "K";
     }
 
-    return "£" +
-        Math.floor(value)
-        .toLocaleString();
-
+    return "£" + Math.floor(value).toLocaleString();
 }
 
 
-/* =====================================
-   TOTAL BUSINESSES
-===================================== */
+/* TOTAL BUSINESSES */
 
 function totalBusinesses() {
 
-    return businesses.reduce(
+    return businesses.reduce((total, business) => {
 
-        (total, business) => {
+        return total + game.businesses[business.id].owned;
 
-            return total +
-                game.businesses[business.id].owned;
-
-        },
-
-        0
-
-    );
+    }, 0);
 
 }
 
 
-/* =====================================
-   INCOME
-===================================== */
+/* INCOME */
 
 function getIncome() {
 
@@ -786,21 +827,15 @@ function getIncome() {
 
     businesses.forEach(business => {
 
-        const data =
-            game.businesses[business.id];
+        const data = game.businesses[business.id];
 
         if (data.owned > 0) {
 
-            let amount =
-                business.income *
-                data.owned;
+            let amount = business.income * data.owned;
 
-            amount *=
-                Math.pow(1.5, data.upgrades);
+            amount *= Math.pow(1.5, data.upgrades);
 
-            amount *=
-                1 +
-                (data.workers * 0.25);
+            amount *= 1 + (data.workers * 0.25);
 
             total += amount;
 
@@ -809,128 +844,81 @@ function getIncome() {
     });
 
     return total;
-
 }
 
 
-/* =====================================
-   BUY BUSINESS
-===================================== */
+/* BUY BUSINESS */
 
 function buyBusiness(id) {
 
-    const business =
-        businesses.find(
-            b => b.id === id
-        );
-
-    const data =
-        game.businesses[id];
+    const business = businesses.find(b => b.id === id);
+    const data = game.businesses[id];
 
     if (game.money < business.price) {
 
-        popup(
-            "❌ You don't have enough money!"
-        );
+        popup("❌ You don't have enough money!");
 
         return;
-
     }
 
     game.money -= business.price;
 
     data.owned++;
 
-    popup(
-        "🎉 You bought " +
-        business.name +
-        "!"
-    );
+    popup("🎉 You bought " + business.name + "!");
 
     save();
 
     render();
-
 }
 
 
-/* =====================================
-   UPGRADE
-===================================== */
+/* UPGRADE */
 
 function upgradeBusiness(id) {
 
-    const business =
-        businesses.find(
-            b => b.id === id
-        );
-
-    const data =
-        game.businesses[id];
+    const business = businesses.find(b => b.id === id);
+    const data = game.businesses[id];
 
     const price =
         business.upgrade *
-        Math.pow(
-            1.7,
-            data.upgrades
-        );
+        Math.pow(1.7, data.upgrades);
 
     if (game.money < price) {
 
-        popup(
-            "❌ You can't afford this upgrade!"
-        );
+        popup("❌ You can't afford this upgrade!");
 
         return;
-
     }
 
     game.money -= price;
 
     data.upgrades++;
 
-    popup(
-        "⬆️ " +
-        business.name +
-        " upgraded!"
-    );
+    popup("⬆️ " + business.name + " upgraded!");
 
     save();
 
     render();
-
 }
 
 
-/* =====================================
-   HIRE WORKER
-===================================== */
+/* HIRE */
 
 function hireWorker(id) {
 
-    const business =
-        businesses.find(
-            b => b.id === id
-        );
-
-    const data =
-        game.businesses[id];
+    const business = businesses.find(b => b.id === id);
+    const data = game.businesses[id];
 
     const price =
         business.worker *
-        Math.pow(
-            1.5,
-            data.workers
-        );
+        Math.pow(1.5, data.workers);
 
     if (game.money < price) {
 
-        popup(
-            "❌ You can't afford another employee!"
-        );
+        popup("❌ You can't afford another employee!");
 
         return;
-
     }
 
     game.money -= price;
@@ -939,71 +927,46 @@ function hireWorker(id) {
 
     game.workers++;
 
-    popup(
-        "👷 Employee hired!"
-    );
+    popup("👷 Employee hired!");
 
     save();
 
     render();
-
 }
 
 
-/* =====================================
-   RENDER BUSINESSES
-===================================== */
+/* RENDER BUSINESSES */
 
 function renderBusinesses() {
 
     const container =
-        document.getElementById(
-            "businesses"
-        );
+        document.getElementById("businesses");
 
     container.innerHTML = "";
-
 
     businesses.forEach(business => {
 
         const data =
             game.businesses[business.id];
 
-
         const upgradePrice =
             business.upgrade *
-            Math.pow(
-                1.7,
-                data.upgrades
-            );
-
+            Math.pow(1.7, data.upgrades);
 
         const workerPrice =
             business.worker *
-            Math.pow(
-                1.5,
-                data.workers
-            );
-
+            Math.pow(1.5, data.workers);
 
         const currentIncome =
             business.income *
             data.owned *
-            Math.pow(
-                1.5,
-                data.upgrades
-            ) *
+            Math.pow(1.5, data.upgrades) *
             (1 + data.workers * 0.25);
 
-
         const card =
-            document.createElement(
-                "div"
-            );
+            document.createElement("div");
 
-        card.className =
-            "business";
-
+        card.className = "business";
 
         card.innerHTML = `
 
@@ -1027,56 +990,36 @@ function renderBusinesses() {
 
             </div>
 
-
             <div class="info-grid">
 
                 <div class="info">
-
-                    <strong>
-                        ${data.owned}
-                    </strong>
-
+                    <strong>${data.owned}</strong>
                     Owned
-
                 </div>
 
-
                 <div class="info">
-
                     <strong>
                         ${formatMoney(currentIncome)}
                     </strong>
-
                     Per Second
-
                 </div>
 
-
                 <div class="info">
-
-                    <strong>
-                        ${data.workers}
-                    </strong>
-
+                    <strong>${data.workers}</strong>
                     Employees
-
                 </div>
 
             </div>
 
-
             ${
                 data.owned === 0
 
-                ?
-
-                `
+                ? `
 
                 <button
                     class="buy"
                     onclick="buyBusiness('${business.id}')"
-                    ${game.money < business.price ? "disabled" : ""}
-                >
+                    ${game.money < business.price ? "disabled" : ""}>
 
                     🏢 Buy for
                     ${formatMoney(business.price)}
@@ -1085,32 +1028,26 @@ function renderBusinesses() {
 
                 `
 
-                :
-
-                `
+                : `
 
                 <div class="owned">
                     ✓ You own ${data.owned}
                 </div>
 
-
                 <button
                     class="upgrade"
                     onclick="upgradeBusiness('${business.id}')"
-                    ${game.money < upgradePrice ? "disabled" : ""}
-                >
+                    ${game.money < upgradePrice ? "disabled" : ""}>
 
                     ⬆️ Upgrade —
                     ${formatMoney(upgradePrice)}
 
                 </button>
 
-
                 <button
                     class="worker"
                     onclick="hireWorker('${business.id}')"
-                    ${game.money < workerPrice ? "disabled" : ""}
-                >
+                    ${game.money < workerPrice ? "disabled" : ""}>
 
                     👷 Hire Employee —
                     ${formatMoney(workerPrice)}
@@ -1122,7 +1059,6 @@ function renderBusinesses() {
 
         `;
 
-
         container.appendChild(card);
 
     });
@@ -1130,9 +1066,7 @@ function renderBusinesses() {
 }
 
 
-/* =====================================
-   ACHIEVEMENTS
-===================================== */
+/* ACHIEVEMENTS */
 
 const achievementData = [
 
@@ -1141,8 +1075,7 @@ const achievementData = [
         icon: "🎉",
         name: "First Business",
         description: "Buy your first business.",
-        check: () =>
-            totalBusinesses() >= 1
+        check: () => totalBusinesses() >= 1
     },
 
     {
@@ -1150,8 +1083,7 @@ const achievementData = [
         icon: "🏢",
         name: "Business Empire",
         description: "Own 5 businesses.",
-        check: () =>
-            totalBusinesses() >= 5
+        check: () => totalBusinesses() >= 5
     },
 
     {
@@ -1159,8 +1091,7 @@ const achievementData = [
         icon: "👷",
         name: "Team Builder",
         description: "Hire your first employee.",
-        check: () =>
-            game.workers >= 1
+        check: () => game.workers >= 1
     },
 
     {
@@ -1168,8 +1099,7 @@ const achievementData = [
         icon: "💷",
         name: "£1K Club",
         description: "Earn £1,000.",
-        check: () =>
-            game.totalEarned >= 1000
+        check: () => game.totalEarned >= 1000
     },
 
     {
@@ -1177,8 +1107,7 @@ const achievementData = [
         icon: "💰",
         name: "Millionaire",
         description: "Earn £1 million.",
-        check: () =>
-            game.totalEarned >= 1000000
+        check: () => game.totalEarned >= 1000000
     },
 
     {
@@ -1186,8 +1115,7 @@ const achievementData = [
         icon: "👑",
         name: "Billionaire",
         description: "Earn £1 billion.",
-        check: () =>
-            game.totalEarned >= 1000000000
+        check: () => game.totalEarned >= 1000000000
     },
 
     {
@@ -1198,150 +1126,110 @@ const achievementData = [
         check: () =>
             businesses.every(
                 business =>
-                    game.businesses[
-                        business.id
-                    ].owned > 0
+                    game.businesses[business.id].owned > 0
             )
     }
 
 ];
 
 
+/* RENDER ACHIEVEMENTS */
+
 function renderAchievements() {
 
     const container =
-        document.getElementById(
-            "achievements"
-        );
+        document.getElementById("achievements");
 
     container.innerHTML = "";
 
+    achievementData.forEach(achievement => {
 
-    achievementData.forEach(
-        achievement => {
+        const unlocked =
+            achievement.check();
 
-            const unlocked =
-                achievement.check();
+        if (
+            unlocked &&
+            !game.achievements[achievement.id]
+        ) {
 
+            game.achievements[achievement.id] = true;
 
-            if (
-                unlocked &&
-                !game.achievements[
-                    achievement.id
-                ]
-            ) {
-
-                game.achievements[
-                    achievement.id
-                ] = true;
-
-                popup(
-                    "🏆 Achievement unlocked: " +
-                    achievement.name
-                );
-
-            }
-
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-            card.className =
-                "achievement " +
-                (
-                    unlocked
-                    ? "unlocked"
-                    : ""
-                );
-
-
-            card.innerHTML = `
-
-                <div class="achievement-icon">
-                    ${achievement.icon}
-                </div>
-
-                <div class="achievement-name">
-                    ${achievement.name}
-                </div>
-
-                <div class="achievement-description">
-                    ${achievement.description}
-                </div>
-
-            `;
-
-
-            container.appendChild(card);
+            popup(
+                "🏆 Achievement unlocked: " +
+                achievement.name
+            );
 
         }
-    );
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "achievement " +
+            (unlocked ? "unlocked" : "");
+
+        card.innerHTML = `
+
+            <div class="achievement-icon">
+                ${achievement.icon}
+            </div>
+
+            <div class="achievement-name">
+                ${achievement.name}
+            </div>
+
+            <div class="achievement-description">
+                ${achievement.description}
+            </div>
+
+        `;
+
+        container.appendChild(card);
+
+    });
 
 }
 
 
-/* =====================================
-   LEVEL
-===================================== */
+/* LEVEL */
 
 function getLevel() {
 
     return Math.max(
-
         1,
-
         Math.floor(
-            Math.sqrt(
-                game.totalEarned / 100
-            )
+            Math.sqrt(game.totalEarned / 100)
         ) + 1
-
     );
 
 }
 
 
+/* LEVEL DISPLAY */
+
 function renderLevel() {
 
-    const level =
-        getLevel();
+    const level = getLevel();
 
-
-    document.getElementById(
-        "level"
-    ).textContent = level;
-
+    document.getElementById("level").textContent =
+        level;
 
     const progress =
         game.totalEarned % 10000;
 
-
-    document.getElementById(
-        "progress"
-    ).style.width =
-
-        Math.min(
-            100,
-            progress / 100
-        ) + "%";
+    document.getElementById("progress").style.width =
+        Math.min(100, progress / 100) + "%";
 
 }
 
 
-/* =====================================
-   DAILY BONUS
-===================================== */
+/* DAILY BONUS */
 
 function dailyBonus() {
 
-    const now =
-        Date.now();
+    const now = Date.now();
 
-    const day =
-        86400000;
-
+    const day = 86400000;
 
     if (
         game.lastBonus &&
@@ -1349,18 +1237,12 @@ function dailyBonus() {
     ) {
 
         const remaining =
-            day -
-            (
-                now -
-                game.lastBonus
-            );
-
+            day - (now - game.lastBonus);
 
         const hours =
             Math.ceil(
                 remaining / 3600000
             );
-
 
         popup(
             "⏰ Your next bonus is in " +
@@ -1369,39 +1251,30 @@ function dailyBonus() {
         );
 
         return;
-
     }
-
 
     const bonus =
         100 +
         getLevel() * 100;
 
-
     game.money += bonus;
 
     game.totalEarned += bonus;
 
-    game.lastBonus =
-        now;
-
+    game.lastBonus = now;
 
     popup(
         "🎁 Daily bonus: +" +
         formatMoney(bonus)
     );
 
-
     save();
 
     render();
-
 }
 
 
-/* =====================================
-   RANDOM EVENTS
-===================================== */
+/* RANDOM EVENTS */
 
 function randomEvent() {
 
@@ -1409,60 +1282,46 @@ function randomEvent() {
         totalBusinesses() === 0 ||
         Math.random() > 0.08
     ) {
-
         return;
-
     }
 
-
-    const income =
-        getIncome();
-
+    const income = getIncome();
 
     const events = [
 
         {
-            text:
-                "🔥 Your company went viral!",
-            amount:
-                Math.max(
-                    100,
-                    income * 20
-                )
+            text: "🔥 Your company went viral!",
+            amount: Math.max(
+                100,
+                income * 20
+            )
         },
 
         {
-            text:
-                "🎉 A customer made a huge purchase!",
-            amount:
-                Math.max(
-                    50,
-                    income * 10
-                )
+            text: "🎉 A customer made a huge purchase!",
+            amount: Math.max(
+                50,
+                income * 10
+            )
         },
 
         {
-            text:
-                "📈 Your company had a record day!",
-            amount:
-                Math.max(
-                    150,
-                    income * 30
-                )
+            text: "📈 Your company had a record day!",
+            amount: Math.max(
+                150,
+                income * 30
+            )
         },
 
         {
-            text:
-                "🌧️ Rainy weather boosted your sales!",
-            amount:
-                Math.max(
-                    75,
-                    income * 15
-                )
+            text: "🌧️ Rainy weather boosted your sales!",
+            amount: Math.max(
+                75,
+                income * 15
+            )
         }
 
     ];
-
 
     const event =
         events[
@@ -1472,14 +1331,9 @@ function randomEvent() {
             )
         ];
 
+    game.money += event.amount;
 
-    game.money +=
-        event.amount;
-
-
-    game.totalEarned +=
-        event.amount;
-
+    game.totalEarned += event.amount;
 
     popup(
         event.text +
@@ -1487,61 +1341,38 @@ function randomEvent() {
         formatMoney(event.amount)
     );
 
-
     save();
 
     render();
-
 }
 
 
-/* =====================================
-   POPUP
-===================================== */
+/* POPUP */
 
 let popupTimer;
-
 
 function popup(text) {
 
     const box =
-        document.getElementById(
-            "popup"
-        );
+        document.getElementById("popup");
 
+    box.textContent = text;
 
-    box.textContent =
-        text;
+    box.classList.add("show");
 
-
-    box.classList.add(
-        "show"
-    );
-
-
-    clearTimeout(
-        popupTimer
-    );
-
+    clearTimeout(popupTimer);
 
     popupTimer =
-        setTimeout(
-            () => {
+        setTimeout(() => {
 
-                box.classList.remove(
-                    "show"
-                );
+            box.classList.remove("show");
 
-            },
-            3000
-        );
+        }, 3000);
 
 }
 
 
-/* =====================================
-   SAVE
-===================================== */
+/* SAVE */
 
 function save() {
 
@@ -1553,9 +1384,7 @@ function save() {
 }
 
 
-/* =====================================
-   MANUAL SAVE — NEW
-===================================== */
+/* MANUAL SAVE */
 
 function manualSave() {
 
@@ -1568,9 +1397,7 @@ function manualSave() {
 }
 
 
-/* =====================================
-   RESET
-===================================== */
+/* RESET */
 
 function resetGame() {
 
@@ -1579,60 +1406,38 @@ function resetGame() {
             "Reset your RainyEmps empire?"
         );
 
-
     if (!confirmed) {
         return;
     }
 
-
     localStorage.removeItem(
         "rainyemps-save"
     );
-
 
     location.reload();
 
 }
 
 
-/* =====================================
-   RENDER
-===================================== */
+/* RENDER */
 
 function render() {
 
-    document.getElementById(
-        "cash"
-    ).textContent =
+    document.getElementById("cash").textContent =
         formatMoney(game.money);
 
-
-    document.getElementById(
-        "income"
-    ).textContent =
+    document.getElementById("income").textContent =
         formatMoney(getIncome()) +
         "/s";
 
-
-    document.getElementById(
-        "businessCount"
-    ).textContent =
+    document.getElementById("businessCount").textContent =
         totalBusinesses();
 
-
-    document.getElementById(
-        "workerCount"
-    ).textContent =
+    document.getElementById("workerCount").textContent =
         game.workers;
 
-
-    document.getElementById(
-        "totalEarned"
-    ).textContent =
-        formatMoney(
-            game.totalEarned
-        );
-
+    document.getElementById("totalEarned").textContent =
+        formatMoney(game.totalEarned);
 
     renderLevel();
 
@@ -1643,42 +1448,28 @@ function render() {
 }
 
 
-/* =====================================
-   PASSIVE INCOME
-===================================== */
+/* PASSIVE INCOME */
 
-setInterval(
+setInterval(() => {
 
-    () => {
+    const income = getIncome();
 
-        const income =
-            getIncome();
+    if (income > 0) {
 
+        game.money += income;
 
-        if (income > 0) {
+        game.totalEarned += income;
 
-            game.money +=
-                income;
+        save();
 
-            game.totalEarned +=
-                income;
+        render();
 
-            save();
+    }
 
-            render();
-
-        }
-
-    },
-
-    1000
-
-);
+}, 1000);
 
 
-/* =====================================
-   RANDOM EVENT TIMER
-===================================== */
+/* RANDOM EVENTS EVERY 12 SECONDS */
 
 setInterval(
     randomEvent,
@@ -1686,26 +1477,16 @@ setInterval(
 );
 
 
-/* =====================================
-   EXTRA AUTO-SAVE
-===================================== */
+/* AUTO SAVE */
 
-setInterval(
+setInterval(() => {
 
-    () => {
+    save();
 
-        save();
-
-    },
-
-    5000
-
-);
+}, 5000);
 
 
-/* =====================================
-   START GAME
-===================================== */
+/* START */
 
 render();
 
