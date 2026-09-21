@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script data-goatcounter="https://rainylabss.goatcounter.com/count.js"
-        async src="//gc.zgo.at/count.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -349,65 +347,67 @@ footer {
 
 <main class="container">
 
-    <section class="hero">
-        <h1>Build your empire. 🌧️💼</h1>
+<section class="hero">
+    <h1>Build your empire. 🌧️💼</h1>
 
-        <p>
-            Start with £100, build businesses, hire employees,
-            make millions and become the ultimate RainyEmps boss.
-        </p>
+    <p>
+        Start with £100, build businesses, hire employees,
+        make millions and become the ultimate RainyEmps boss.
+    </p>
 
-        <div class="level-row">
-            <span>Company Level</span>
-            <span id="level">1</span>
-        </div>
-
-        <div class="progress">
-            <div class="progress-bar" id="progress"></div>
-        </div>
-    </section>
-
-    <section class="stats">
-
-        <div class="stat">
-            <div class="stat-icon">💷</div>
-            <div class="stat-number" id="income">£0/s</div>
-            <div class="stat-label">Income</div>
-        </div>
-
-        <div class="stat">
-            <div class="stat-icon">🏢</div>
-            <div class="stat-number" id="businessCount">0</div>
-            <div class="stat-label">Businesses</div>
-        </div>
-
-        <div class="stat">
-            <div class="stat-icon">👷</div>
-            <div class="stat-number" id="workerCount">0</div>
-            <div class="stat-label">Employees</div>
-        </div>
-
-        <div class="stat">
-            <div class="stat-icon">📈</div>
-            <div class="stat-number" id="totalEarned">£0</div>
-            <div class="stat-label">Total Earned</div>
-        </div>
-
-    </section>
-
-    <h2 class="section-title">🏢 Your Companies</h2>
-
-    <div id="businesses"></div>
-
-    <h2 class="section-title">🏆 Achievements</h2>
-
-    <div class="achievements" id="achievements"></div>
-
-    <div class="controls">
-        <button class="bonus" onclick="dailyBonus()">🎁 Daily Bonus</button>
-        <button class="save-button" onclick="manualSave()">💾 Save Game</button>
-        <button class="reset" onclick="resetGame()">Reset</button>
+    <div class="level-row">
+        <span>Company Level</span>
+        <span id="level">1</span>
     </div>
+
+    <div class="progress">
+        <div class="progress-bar" id="progress"></div>
+    </div>
+</section>
+
+<section class="stats">
+
+<div class="stat">
+    <div class="stat-icon">💷</div>
+    <div class="stat-number" id="income">£0/s</div>
+    <div class="stat-label">Income</div>
+</div>
+
+<div class="stat">
+    <div class="stat-icon">🏢</div>
+    <div class="stat-number" id="businessCount">0</div>
+    <div class="stat-label">Businesses</div>
+</div>
+
+<div class="stat">
+    <div class="stat-icon">👷</div>
+    <div class="stat-number" id="workerCount">0</div>
+    <div class="stat-label">Employees</div>
+</div>
+
+<div class="stat">
+    <div class="stat-icon">📈</div>
+    <div class="stat-number" id="totalEarned">£0</div>
+    <div class="stat-label">Total Earned</div>
+</div>
+
+</section>
+
+<h2 class="section-title">
+    🏢 Your Companies
+</h2>
+
+<div id="businesses"></div>
+
+<h2 class="section-title">🏆 Achievements</h2>
+
+<div class="achievements" id="achievements"></div>
+
+<div class="controls">
+    <button class="bonus" onclick="dailyBonus()">🎁 Daily Bonus</button>
+    <button class="save-button" onclick="manualSave()">💾 Save Game</button>
+    <button class="reset" onclick="resetGame()">Reset</button>
+</div>
 
 </main>
 
@@ -419,323 +419,2180 @@ footer {
 
 <script>
 
+/* =========================================================
+   RAINYEMPS — 200 BUSINESSES
+   28 ORIGINAL + 15 MARK + 157 NORMAL = 200
+========================================================= */
+
 const businesses = [
 
-    /* ORIGINAL BUSINESSES */
+/* ================= ORIGINAL 28 ================= */
 
-    {
-        id: "lemonade",
-        name: "Lemonade Stand",
-        icon: "🍋",
-        description: "Your first step into the business world.",
-        price: 50,
-        income: 2,
-        upgrade: 75,
-        worker: 100
-    },
+{
+id:"lemonade",
+name:"Lemonade Stand",
+icon:"🍋",
+description:"Your first step into the business world.",
+price:50,
+income:2,
+upgrade:75,
+worker:100
+},
 
-    {
-        id: "bakery",
-        name: "Rainy Bakery",
-        icon: "🥐",
-        description: "Bake delicious treats and make money.",
-        price: 500,
-        income: 15,
-        upgrade: 650,
-        worker: 800
-    },
+{
+id:"bakery",
+name:"Rainy Bakery",
+icon:"🥐",
+description:"Bake delicious treats and make money.",
+price:500,
+income:15,
+upgrade:650,
+worker:800
+},
 
-    {
-        id: "cafe",
-        name: "Rainy Café",
-        icon: "☕",
-        description: "A cosy café for your growing empire.",
-        price: 2500,
-        income: 70,
-        upgrade: 3000,
-        worker: 3500
-    },
+{
+id:"cafe",
+name:"Rainy Café",
+icon:"☕",
+description:"A cosy café for your growing empire.",
+price:2500,
+income:70,
+upgrade:3000,
+worker:3500
+},
 
-    {
-        id: "fashion",
-        name: "Fashion Store",
-        icon: "👕",
-        description: "Create your own fashion empire.",
-        price: 10000,
-        income: 250,
-        upgrade: 12000,
-        worker: 15000
-    },
+{
+id:"fashion",
+name:"Fashion Store",
+icon:"👕",
+description:"Create your own fashion empire.",
+price:10000,
+income:250,
+upgrade:12000,
+worker:15000
+},
 
-    {
-        id: "tech",
-        name: "Tech Company",
-        icon: "💻",
-        description: "Build the next giant technology company.",
-        price: 50000,
-        income: 1000,
-        upgrade: 60000,
-        worker: 75000
-    },
+{
+id:"tech",
+name:"Tech Company",
+icon:"💻",
+description:"Build the next giant technology company.",
+price:50000,
+income:1000,
+upgrade:60000,
+worker:75000
+},
 
-    {
-        id: "hotel",
-        name: "Luxury Hotel",
-        icon: "🏨",
-        description: "Own a five-star hotel.",
-        price: 250000,
-        income: 5000,
-        upgrade: 300000,
-        worker: 350000
-    },
+{
+id:"hotel",
+name:"Luxury Hotel",
+icon:"🏨",
+description:"Own a five-star hotel.",
+price:250000,
+income:5000,
+upgrade:300000,
+worker:350000
+},
 
-    {
-        id: "airline",
-        name: "Rainy Airlines",
-        icon: "✈️",
-        description: "Take your company around the world.",
-        price: 1000000,
-        income: 20000,
-        upgrade: 1200000,
-        worker: 1500000
-    },
+{
+id:"airline",
+name:"Rainy Airlines",
+icon:"✈️",
+description:"Take your company around the world.",
+price:1000000,
+income:20000,
+upgrade:1200000,
+worker:1500000
+},
 
-    {
-        id: "space",
-        name: "Rainy Space",
-        icon: "🚀",
-        description: "Your company has reached the stars.",
-        price: 10000000,
-        income: 150000,
-        upgrade: 12000000,
-        worker: 15000000
-    },
+{
+id:"space",
+name:"Rainy Space",
+icon:"🚀",
+description:"Your company has reached the stars.",
+price:10000000,
+income:150000,
+upgrade:12000000,
+worker:15000000
+},
 
-    /* 20 NEW BUSINESSES */
+{
+id:"pizza",
+name:"Rainy Pizza",
+icon:"🍕",
+description:"Build a pizza empire one slice at a time.",
+price:25000000,
+income:400000,
+upgrade:30000000,
+worker:35000000
+},
 
-    {
-        id: "pizza",
-        name: "Rainy Pizza",
-        icon: "🍕",
-        description: "Build a pizza empire one slice at a time.",
-        price: 25000000,
-        income: 400000,
-        upgrade: 30000000,
-        worker: 35000000
-    },
+{
+id:"gaming",
+name:"Gaming Store",
+icon:"🎮",
+description:"Sell games, consoles and gaming gear.",
+price:60000000,
+income:900000,
+upgrade:75000000,
+worker:90000000
+},
 
-    {
-        id: "gaming",
-        name: "Gaming Store",
-        icon: "🎮",
-        description: "Sell games, consoles and gaming gear.",
-        price: 60000000,
-        income: 900000,
-        upgrade: 75000000,
-        worker: 90000000
-    },
+{
+id:"toys",
+name:"Toy Company",
+icon:"🧸",
+description:"Create the toys everyone wants.",
+price:150000000,
+income:2000000,
+upgrade:190000000,
+worker:225000000
+},
 
-    {
-        id: "toys",
-        name: "Toy Company",
-        icon: "🧸",
-        description: "Create the toys everyone wants.",
-        price: 150000000,
-        income: 2000000,
-        upgrade: 190000000,
-        worker: 225000000
-    },
+{
+id:"phone",
+name:"Phone Company",
+icon:"📱",
+description:"Create the next generation of smartphones.",
+price:350000000,
+income:5000000,
+upgrade:425000000,
+worker:525000000
+},
 
-    {
-        id: "phone",
-        name: "Phone Company",
-        icon: "📱",
-        description: "Create the next generation of smartphones.",
-        price: 350000000,
-        income: 5000000,
-        upgrade: 425000000,
-        worker: 525000000
-    },
+{
+id:"cars",
+name:"Car Dealership",
+icon:"🚗",
+description:"Sell amazing cars and grow your dealership.",
+price:800000000,
+income:12000000,
+upgrade:1000000000,
+worker:1200000000
+},
 
-    {
-        id: "cars",
-        name: "Car Dealership",
-        icon: "🚗",
-        description: "Sell amazing cars and grow your dealership.",
-        price: 800000000,
-        income: 12000000,
-        upgrade: 1000000000,
-        worker: 1200000000
-    },
+{
+id:"property",
+name:"Property Company",
+icon:"🏠",
+description:"Buy, build and sell valuable properties.",
+price:1800000000,
+income:30000000,
+upgrade:2200000000,
+worker:2700000000
+},
 
-    {
-        id: "property",
-        name: "Property Company",
-        icon: "🏠",
-        description: "Buy, build and sell valuable properties.",
-        price: 1800000000,
-        income: 30000000,
-        upgrade: 2200000000,
-        worker: 2700000000
-    },
+{
+id:"film",
+name:"Film Studio",
+icon:"🎬",
+description:"Make blockbuster movies and TV shows.",
+price:4000000000,
+income:65000000,
+upgrade:4800000000,
+worker:5800000000
+},
 
-    {
-        id: "film",
-        name: "Film Studio",
-        icon: "🎬",
-        description: "Make blockbuster movies and TV shows.",
-        price: 4000000000,
-        income: 65000000,
-        upgrade: 4800000000,
-        worker: 5800000000
-    },
+{
+id:"music",
+name:"Music Company",
+icon:"🎵",
+description:"Build a worldwide music empire.",
+price:8000000000,
+income:120000000,
+upgrade:9500000000,
+worker:11000000000
+},
 
-    {
-        id: "music",
-        name: "Music Company",
-        icon: "🎵",
-        description: "Build a worldwide music empire.",
-        price: 8000000000,
-        income: 120000000,
-        upgrade: 9500000000,
-        worker: 11000000000
-    },
+{
+id:"supermarket",
+name:"Supermarket",
+icon:"🛒",
+description:"Own a huge supermarket chain.",
+price:16000000000,
+income:220000000,
+upgrade:19000000000,
+worker:22000000000
+},
 
-    {
-        id: "supermarket",
-        name: "Supermarket",
-        icon: "🛒",
-        description: "Own a huge supermarket chain.",
-        price: 16000000000,
-        income: 220000000,
-        upgrade: 19000000000,
-        worker: 22000000000
-    },
+{
+id:"bank",
+name:"Rainy Bank",
+icon:"🏦",
+description:"Become the boss of a massive bank.",
+price:30000000000,
+income:400000000,
+upgrade:35000000000,
+worker:42000000000
+},
 
-    {
-        id: "bank",
-        name: "Rainy Bank",
-        icon: "🏦",
-        description: "Become the boss of a massive bank.",
-        price: 30000000000,
-        income: 400000000,
-        upgrade: 35000000000,
-        worker: 42000000000
-    },
+{
+id:"construction",
+name:"Construction Company",
+icon:"🏗️",
+description:"Build skyscrapers, homes and huge projects.",
+price:55000000000,
+income:700000000,
+upgrade:65000000000,
+worker:75000000000
+},
 
-    {
-        id: "construction",
-        name: "Construction Company",
-        icon: "🏗️",
-        description: "Build skyscrapers, homes and huge projects.",
-        price: 55000000000,
-        income: 700000000,
-        upgrade: 65000000000,
-        worker: 75000000000
-    },
+{
+id:"energy",
+name:"Energy Company",
+icon:"⚡",
+description:"Power your growing business empire.",
+price:100000000000,
+income:1200000000,
+upgrade:120000000000,
+worker:140000000000
+},
 
-    {
-        id: "energy",
-        name: "Energy Company",
-        icon: "⚡",
-        description: "Power your growing business empire.",
-        price: 100000000000,
-        income: 1200000000,
-        upgrade: 120000000000,
-        worker: 140000000000
-    },
+{
+id:"shipping",
+name:"Shipping Company",
+icon:"🚢",
+description:"Move products across the world.",
+price:180000000000,
+income:2000000000,
+upgrade:220000000000,
+worker:250000000000
+},
 
-    {
-        id: "shipping",
-        name: "Shipping Company",
-        icon: "🚢",
-        description: "Move products across the world.",
-        price: 180000000000,
-        income: 2000000000,
-        upgrade: 220000000000,
-        worker: 250000000000
-    },
+{
+id:"resort",
+name:"Holiday Resort",
+icon:"🏝️",
+description:"Own luxury resorts around the world.",
+price:350000000000,
+income:4000000000,
+upgrade:420000000000,
+worker:500000000000
+},
 
-    {
-        id: "resort",
-        name: "Holiday Resort",
-        icon: "🏝️",
-        description: "Own luxury resorts around the world.",
-        price: 350000000000,
-        income: 4000000000,
-        upgrade: 420000000000,
-        worker: 500000000000
-    },
+{
+id:"racing",
+name:"Racing Team",
+icon:"🏎️",
+description:"Compete in the world's biggest races.",
+price:700000000000,
+income:8000000000,
+upgrade:850000000000,
+worker:1000000000000
+},
 
-    {
-        id: "racing",
-        name: "Racing Team",
-        icon: "🏎️",
-        description: "Compete in the world's biggest races.",
-        price: 700000000000,
-        income: 8000000000,
-        upgrade: 850000000000,
-        worker: 1000000000000
-    },
+{
+id:"satellite",
+name:"Satellite Company",
+icon:"🛰️",
+description:"Build a business that reaches space.",
+price:1300000000000,
+income:15000000000,
+upgrade:1600000000000,
+worker:1900000000000
+},
 
-    {
-        id: "satellite",
-        name: "Satellite Company",
-        icon: "🛰️",
-        description: "Build a business that reaches space.",
-        price: 1300000000000,
-        income: 15000000000,
-        upgrade: 1600000000000,
-        worker: 1900000000000
-    },
+{
+id:"ai",
+name:"AI Corporation",
+icon:"🤖",
+description:"Create powerful artificial intelligence.",
+price:2500000000000,
+income:30000000000,
+upgrade:3000000000000,
+worker:3500000000000
+},
 
-    {
-        id: "ai",
-        name: "AI Corporation",
-        icon: "🤖",
-        description: "Create powerful artificial intelligence.",
-        price: 2500000000000,
-        income: 30000000000,
-        upgrade: 3000000000000,
-        worker: 3500000000000
-    },
+{
+id:"internet",
+name:"Rainy Internet",
+icon:"🌐",
+description:"Build a global internet empire.",
+price:5000000000000,
+income:60000000000,
+upgrade:6000000000000,
+worker:7000000000000
+},
 
-    {
-        id: "internet",
-        name: "Rainy Internet",
-        icon: "🌐",
-        description: "Build a global internet empire.",
-        price: 5000000000000,
-        income: 60000000000,
-        upgrade: 6000000000000,
-        worker: 7000000000000
-    },
+{
+id:"orins",
+name:"Orins Gaming Factory",
+icon:"🎮",
+description:"A gigantic gaming factory producing huge games.",
+price:12000000000000,
+income:150000000000,
+upgrade:15000000000000,
+worker:18000000000000
+},
 
-    {
-        id: "orins",
-        name: "Orins Gaming Factory",
-        icon: "🎮",
-        description: "A gigantic gaming factory producing the world's biggest games.",
-        price: 12000000000000,
-        income: 150000000000,
-        upgrade: 15000000000000,
-        worker: 18000000000000
-    },
+{
+id:"marks",
+name:"Marks Noodle Factory",
+icon:"🍜",
+description:"The ultimate noodle factory.",
+price:30000000000000,
+income:400000000000,
+upgrade:36000000000000,
+worker:45000000000000
+},
 
-    {
-        id: "marks",
-        name: "Marks Noodle Factory",
-        icon: "🍜",
-        description: "The ultimate noodle factory and the most expensive business.",
-        price: 30000000000000,
-        income: 400000000000,
-        upgrade: 36000000000000,
-        worker: 45000000000000
-    }
+/* ================= 15 MARK BUSINESSES ================= */
+
+{
+id:"marks_surfing",
+name:"Mark's Surfing Factory",
+icon:"🏄",
+description:"Mark's legendary surfing business.",
+price:60000000000000,
+income:900000000000,
+upgrade:72000000000000,
+worker:90000000000000
+},
+
+{
+id:"marks_pizza",
+name:"Mark's Pizza Palace",
+icon:"🍕",
+description:"Mark's pizza empire.",
+price:100000000000000,
+income:1500000000000,
+upgrade:120000000000000,
+worker:150000000000000
+},
+
+{
+id:"marks_gaming",
+name:"Mark's Gaming Hub",
+icon:"🎮",
+description:"Mark's gaming headquarters.",
+price:175000000000000,
+income:2600000000000,
+upgrade:210000000000000,
+worker:260000000000000
+},
+
+{
+id:"marks_burger",
+name:"Mark's Burger Barn",
+icon:"🍔",
+description:"Mark's giant burger business.",
+price:300000000000000,
+income:4500000000000,
+upgrade:360000000000000,
+worker:450000000000000
+},
+
+{
+id:"marks_icecream",
+name:"Mark's Ice Cream Factory",
+icon:"🍦",
+description:"Mark's frozen empire.",
+price:500000000000000,
+income:7500000000000,
+upgrade:600000000000000,
+worker:750000000000000
+},
+
+{
+id:"marks_rocket",
+name:"Mark's Rocket Works",
+icon:"🚀",
+description:"Mark builds rockets.",
+price:800000000000000,
+income:12000000000000,
+upgrade:960000000000000,
+worker:1200000000000000
+},
+
+{
+id:"marks_skate",
+name:"Mark's Skate Shop",
+icon:"🛹",
+description:"Mark's extreme sports shop.",
+price:1200000000000000,
+income:18000000000000,
+upgrade:1440000000000000,
+worker:1800000000000000
+},
+
+{
+id:"marks_toys",
+name:"Mark's Toy Factory",
+icon:"🧸",
+description:"Mark manufactures toys.",
+price:1800000000000000,
+income:27000000000000,
+upgrade:2160000000000000,
+worker:2700000000000000
+},
+
+{
+id:"marks_arcade",
+name:"Mark's Arcade",
+icon:"🕹️",
+description:"Mark's enormous arcade.",
+price:2500000000000000,
+income:37500000000000,
+upgrade:3000000000000000,
+worker:3750000000000000
+},
+
+{
+id:"marks_beach",
+name:"Mark's Beach Café",
+icon:"🏖️",
+description:"Mark's seaside café.",
+price:3500000000000000,
+income:52500000000000,
+upgrade:4200000000000000,
+worker:5250000000000000
+},
+
+{
+id:"marks_cars",
+name:"Mark's Car Wash",
+icon:"🚿",
+description:"Mark's car-washing empire.",
+price:5000000000000000,
+income:75000000000000,
+upgrade:6000000000000000,
+worker:7500000000000000
+},
+
+{
+id:"marks_bike",
+name:"Mark's Bike Garage",
+icon:"🚲",
+description:"Mark fixes and sells bikes.",
+price:7000000000000000,
+income:105000000000000,
+upgrade:8400000000000000,
+worker:10500000000000000
+},
+
+{
+id:"marks_movie",
+name:"Mark's Movie Studio",
+icon:"🎬",
+description:"Mark makes blockbuster movies.",
+price:10000000000000000,
+income:150000000000000,
+upgrade:12000000000000000,
+worker:15000000000000000
+},
+
+{
+id:"marks_pets",
+name:"Mark's Pet Palace",
+icon:"🐾",
+description:"Mark's pet empire.",
+price:15000000000000000,
+income:225000000000000,
+upgrade:18000000000000000,
+worker:22500000000000000
+},
+
+{
+id:"marks_cake",
+name:"Mark's Cake Factory",
+icon:"🎂",
+description:"Mark's giant cake factory.",
+price:25000000000000000,
+income:375000000000000,
+upgrade:30000000000000000,
+worker:37500000000000000
+},
+
+/* ================= NORMAL BUSINESSES ================= */
+
+{
+id:"corner_shop",
+name:"Corner Shop",
+icon:"🏪",
+description:"A small shop with big potential.",
+price:300000,
+income:15,
+upgrade:360000,
+worker:420000
+},
+
+{
+id:"coffee_shop",
+name:"Coffee Shop",
+icon:"☕",
+description:"Serve coffee to customers.",
+price:600000,
+income:30,
+upgrade:720000,
+worker:840000
+},
+
+{
+id:"fish_chips",
+name:"Fish & Chip Shop",
+icon:"🍟",
+description:"A classic takeaway business.",
+price:1000000,
+income:50,
+upgrade:1200000,
+worker:1400000
+},
+
+{
+id:"restaurant",
+name:"Restaurant",
+icon:"🍽️",
+description:"Run a busy restaurant.",
+price:1600000,
+income:80,
+upgrade:1920000,
+worker:2240000
+},
+
+{
+id:"shoe_shop",
+name:"Shoe Shop",
+icon:"👟",
+description:"Sell shoes to everyone.",
+price:2500000,
+income:120,
+upgrade:3000000,
+worker:3500000
+},
+
+{
+id:"bookshop",
+name:"Bookshop",
+icon:"📚",
+description:"Build a successful book business.",
+price:4000000,
+income:180,
+upgrade:4800000,
+worker:5600000
+},
+
+{
+id:"florist",
+name:"Florist",
+icon:"💐",
+description:"Sell flowers and gifts.",
+price:6000000,
+income:260,
+upgrade:7200000,
+worker:8400000
+},
+
+{
+id:"barber",
+name:"Barber Shop",
+icon:"💈",
+description:"Give customers a fresh cut.",
+price:9000000,
+income:380,
+upgrade:10800000,
+worker:12600000
+},
+
+{
+id:"hair_salon",
+name:"Hair Salon",
+icon:"💇",
+description:"Create a stylish salon empire.",
+price:13000000,
+income:520,
+upgrade:15600000,
+worker:18200000
+},
+
+{
+id:"garage",
+name:"Garage",
+icon:"🔧",
+description:"Repair cars and vehicles.",
+price:18000000,
+income:700,
+upgrade:21600000,
+worker:25200000
+},
+
+{
+id:"phone_repair",
+name:"Phone Repair Shop",
+icon:"📱",
+description:"Fix broken phones.",
+price:25000000,
+income:950,
+upgrade:30000000,
+worker:35000000
+},
+
+{
+id:"computer_repair",
+name:"Computer Repair Shop",
+icon:"🖥️",
+description:"Repair computers and technology.",
+price:35000000,
+income:1300,
+upgrade:42000000,
+worker:49000000
+},
+
+{
+id:"furniture_store",
+name:"Furniture Store",
+icon:"🛋️",
+description:"Sell furniture for homes.",
+price:50000000,
+income:1800,
+upgrade:60000000,
+worker:70000000
+},
+
+{
+id:"electronics_store",
+name:"Electronics Store",
+icon:"📺",
+description:"Sell the latest electronics.",
+price:70000000,
+income:2500,
+upgrade:84000000,
+worker:98000000
+},
+
+{
+id:"hardware_store",
+name:"Hardware Store",
+icon:"🔨",
+description:"Supply tools and equipment.",
+price:95000000,
+income:3300,
+upgrade:114000000,
+worker:133000000
+},
+
+{
+id:"pharmacy",
+name:"Pharmacy",
+icon:"💊",
+description:"Run a major pharmacy business.",
+price:130000000,
+income:4500,
+upgrade:156000000,
+worker:182000000
+},
+
+{
+id:"garden_centre",
+name:"Garden Centre",
+icon:"🌱",
+description:"Sell plants and gardening supplies.",
+price:175000000,
+income:6000,
+upgrade:210000000,
+worker:245000000
+},
+
+{
+id:"pet_shop",
+name:"Pet Shop",
+icon:"🐶",
+description:"Build a successful pet business.",
+price:230000000,
+income:7800,
+upgrade:276000000,
+worker:322000000
+},
+
+{
+id:"sports_shop",
+name:"Sports Shop",
+icon:"⚽",
+description:"Sell sports equipment.",
+price:300000000,
+income:10000,
+upgrade:360000000,
+worker:420000000
+},
+
+{
+id:"bike_shop",
+name:"Bike Shop",
+icon:"🚲",
+description:"Sell bikes and cycling equipment.",
+price:400000000,
+income:13000,
+upgrade:480000000,
+worker:560000000
+},
+
+{
+id:"gym",
+name:"Gym",
+icon:"🏋️",
+description:"Own a huge fitness business.",
+price:520000000,
+income:17000,
+upgrade:624000000,
+worker:728000000
+},
+
+{
+id:"cinema",
+name:"Cinema",
+icon:"🎥",
+description:"Show blockbuster movies.",
+price:680000000,
+income:22000,
+upgrade:816000000,
+worker:952000000
+},
+
+{
+id:"bowling",
+name:"Bowling Centre",
+icon:"🎳",
+description:"Own a massive bowling centre.",
+price:880000000,
+income:28000,
+upgrade:1056000000,
+worker:1232000000
+},
+
+{
+id:"holiday_park",
+name:"Holiday Park",
+icon:"🏕️",
+description:"Build a popular holiday destination.",
+price:1100000000,
+income:35000,
+upgrade:1320000000,
+worker:1540000000
+},
+
+{
+id:"estate_agency",
+name:"Estate Agency",
+icon:"🏠",
+description:"Sell valuable properties.",
+price:1400000000,
+income:45000,
+upgrade:1680000000,
+worker:1960000000
+},
+
+{
+id:"cleaning",
+name:"Cleaning Company",
+icon:"🧹",
+description:"Build a nationwide cleaning company.",
+price:1800000000,
+income:58000,
+upgrade:2160000000,
+worker:2520000000
+},
+
+{
+id:"landscaping",
+name:"Landscaping Company",
+icon:"🌳",
+description:"Transform gardens and landscapes.",
+price:2300000000,
+income:72000,
+upgrade:2760000000,
+worker:3220000000
+},
+
+{
+id:"plumbing",
+name:"Plumbing Company",
+icon:"🚰",
+description:"Keep homes and businesses running.",
+price:2900000000,
+income:90000,
+upgrade:3480000000,
+worker:4060000000
+},
+
+{
+id:"electrical",
+name:"Electrical Company",
+icon:"💡",
+description:"Power homes and businesses.",
+price:3600000000,
+income:110000,
+upgrade:4320000000,
+worker:5040000000
+},
+
+{
+id:"roofing",
+name:"Roofing Company",
+icon:"🏠",
+description:"Build and repair roofs.",
+price:4500000000,
+income:135000,
+upgrade:5400000000,
+worker:6300000000
+},
+
+{
+id:"security",
+name:"Security Company",
+icon:"🛡️",
+description:"Protect businesses and properties.",
+price:5600000000,
+income:165000,
+upgrade:6720000000,
+worker:7840000000
+},
+
+{
+id:"courier",
+name:"Courier Company",
+icon:"📦",
+description:"Deliver packages everywhere.",
+price:7000000000,
+income:200000,
+upgrade:8400000000,
+worker:9800000000
+},
+
+{
+id:"delivery",
+name:"Delivery Company",
+icon:"🚚",
+description:"Build a huge delivery network.",
+price:8800000000,
+income:250000,
+upgrade:10560000000,
+worker:12320000000
+},
+
+{
+id:"taxi",
+name:"Taxi Company",
+icon:"🚕",
+description:"Operate taxis across cities.",
+price:11000000000,
+income:310000,
+upgrade:13200000000,
+worker:15400000000
+},
+
+{
+id:"bus",
+name:"Bus Company",
+icon:"🚌",
+description:"Run a huge public transport network.",
+price:14000000000,
+income:390000,
+upgrade:16800000000,
+worker:19600000000
+},
+
+{
+id:"logistics",
+name:"Logistics Company",
+icon:"🚛",
+description:"Move goods around the world.",
+price:18000000000,
+income:500000,
+upgrade:21600000000,
+worker:25200000000
+},
+
+{
+id:"recycling",
+name:"Recycling Company",
+icon:"♻️",
+description:"Turn waste into a huge business.",
+price:23000000000,
+income:630000,
+upgrade:27600000000,
+worker:32200000000
+},
+
+{
+id:"printing",
+name:"Printing Company",
+icon:"🖨️",
+description:"Print everything from posters to books.",
+price:29000000000,
+income:800000,
+upgrade:34800000000,
+worker:40600000000
+},
+
+{
+id:"publishing",
+name:"Publishing Company",
+icon:"📰",
+description:"Publish books and media.",
+price:36000000000,
+income:1000000,
+upgrade:43200000000,
+worker:50400000000
+},
+
+{
+id:"advertising",
+name:"Advertising Agency",
+icon:"📣",
+description:"Create huge advertising campaigns.",
+price:45000000000,
+income:1250000,
+upgrade:54000000000,
+worker:63000000000
+},
+
+{
+id:"accounting",
+name:"Accounting Firm",
+icon:"🧮",
+description:"Manage money for businesses.",
+price:56000000000,
+income:1550000,
+upgrade:67200000000,
+worker:78400000000
+},
+
+{
+id:"law",
+name:"Law Firm",
+icon:"⚖️",
+description:"Build a major legal company.",
+price:70000000000,
+income:1900000,
+upgrade:84000000000,
+worker:98000000000
+},
+
+{
+id:"insurance",
+name:"Insurance Company",
+icon:"🛡️",
+description:"Protect millions of customers.",
+price:88000000000,
+income:2350000,
+upgrade:105600000000,
+worker:123200000000
+},
+
+{
+id:"travel",
+name:"Travel Agency",
+icon:"✈️",
+description:"Help people travel the world.",
+price:110000000000,
+income:2900000,
+upgrade:132000000000,
+worker:154000000000
+},
+
+{
+id:"software",
+name:"Software Studio",
+icon:"💻",
+description:"Build powerful software.",
+price:140000000000,
+income:3600000,
+upgrade:168000000000,
+worker:196000000000
+},
+
+{
+id:"game_studio",
+name:"Game Studio",
+icon:"🎮",
+description:"Create massive video games.",
+price:175000000000,
+income:4500000,
+upgrade:210000000000,
+worker:245000000000
+},
+
+{
+id:"app_company",
+name:"App Company",
+icon:"📲",
+description:"Create apps used around the world.",
+price:220000000000,
+income:5600000,
+upgrade:264000000000,
+worker:308000000000
+},
+
+{
+id:"cybersecurity",
+name:"Cybersecurity Company",
+icon:"🔐",
+description:"Protect the digital world.",
+price:275000000000,
+income:7000000,
+upgrade:330000000000,
+worker:385000000000
+},
+
+{
+id:"cloud",
+name:"Cloud Computing Company",
+icon:"☁️",
+description:"Run massive cloud infrastructure.",
+price:340000000000,
+income:8500000,
+upgrade:408000000000,
+worker:476000000000
+},
+
+{
+id:"computer_manufacturer",
+name:"Computer Manufacturer",
+icon:"🖥️",
+description:"Manufacture computers at huge scale.",
+price:420000000000,
+income:10500000,
+upgrade:504000000000,
+worker:588000000000
+},
+
+{
+id:"smartphone",
+name:"Smartphone Manufacturer",
+icon:"📱",
+description:"Build smartphones for the world.",
+price:520000000000,
+income:13000000,
+upgrade:624000000000,
+worker:728000000000
+},
+
+{
+id:"television",
+name:"Television Manufacturer",
+icon:"📺",
+description:"Manufacture millions of TVs.",
+price:640000000000,
+income:16000000,
+upgrade:768000000000,
+worker:896000000000
+},
+
+{
+id:"camera",
+name:"Camera Company",
+icon:"📷",
+description:"Build professional cameras.",
+price:780000000000,
+income:19500000,
+upgrade:936000000000,
+worker:1092000000000
+},
+
+{
+id:"robot",
+name:"Robot Manufacturer",
+icon:"🤖",
+description:"Build advanced robots.",
+price:950000000000,
+income:24000000,
+upgrade:1140000000000,
+worker:1330000000000
+},
+
+{
+id:"drone",
+name:"Drone Company",
+icon:"🛸",
+description:"Build drones for the future.",
+price:1150000000000,
+income:29000000,
+upgrade:1380000000000,
+worker:1610000000000
+},
+
+{
+id:"car_manufacturer",
+name:"Car Manufacturer",
+icon:"🚗",
+description:"Build cars on a massive scale.",
+price:1400000000000,
+income:35000000,
+upgrade:1680000000000,
+worker:1960000000000
+},
+
+{
+id:"motorcycle",
+name:"Motorcycle Manufacturer",
+icon:"🏍️",
+description:"Build motorcycles worldwide.",
+price:1700000000000,
+income:42000000,
+upgrade:2040000000000,
+worker:2380000000000
+},
+
+{
+id:"electric_vehicle",
+name:"Electric Vehicle Company",
+icon:"🔋",
+description:"Build the future of transport.",
+price:2050000000000,
+income:51000000,
+upgrade:2460000000000,
+worker:2870000000000
+},
+
+{
+id:"train",
+name:"Train Manufacturer",
+icon:"🚆",
+description:"Build trains for cities and countries.",
+price:2450000000000,
+income:61000000,
+upgrade:2940000000000,
+worker:3430000000000
+},
+
+{
+id:"aircraft",
+name:"Aircraft Manufacturer",
+icon:"✈️",
+description:"Build aircraft for the world.",
+price:2900000000000,
+income:72000000,
+upgrade:3480000000000,
+worker:4060000000000
+},
+
+{
+id:"global_shipping",
+name:"Global Shipping Company",
+icon:"🚢",
+description:"Transport products around the planet.",
+price:3400000000000,
+income:85000000,
+upgrade:4080000000000,
+worker:4760000000000
+},
+
+{
+id:"airport_company",
+name:"Airport Company",
+icon:"🛫",
+description:"Operate giant international airports.",
+price:4000000000000,
+income:100000000,
+upgrade:4800000000000,
+worker:5600000000000
+},
+
+{
+id:"solar",
+name:"Solar Energy Company",
+icon:"☀️",
+description:"Generate clean energy.",
+price:4700000000000,
+income:118000000,
+upgrade:5640000000000,
+worker:6580000000000
+},
+
+{
+id:"wind",
+name:"Wind Energy Company",
+icon:"🌬️",
+description:"Build huge wind farms.",
+price:5500000000000,
+income:138000000,
+upgrade:6600000000000,
+worker:7700000000000
+},
+
+{
+id:"battery",
+name:"Battery Company",
+icon:"🔋",
+description:"Build batteries for the future.",
+price:6400000000000,
+income:160000000,
+upgrade:7680000000000,
+worker:8960000000000
+},
+
+{
+id:"water",
+name:"Water Company",
+icon:"💧",
+description:"Supply water to millions.",
+price:7400000000000,
+income:185000000,
+upgrade:8880000000000,
+worker:10360000000000
+},
+
+{
+id:"telecom",
+name:"Telecommunications Company",
+icon:"📡",
+description:"Connect the world.",
+price:8500000000000,
+income:215000000,
+upgrade:10200000000000,
+worker:11900000000000
+},
+
+{
+id:"internet_provider",
+name:"Internet Provider",
+icon:"🌐",
+description:"Provide internet access worldwide.",
+price:9700000000000,
+income:245000000,
+upgrade:11640000000000,
+worker:13580000000000
+},
+
+{
+id:"radio",
+name:"Radio Network",
+icon:"📻",
+description:"Broadcast across the country.",
+price:11000000000000,
+income:280000000,
+upgrade:13200000000000,
+worker:15400000000000
+},
+
+{
+id:"tv_network",
+name:"Television Network",
+icon:"📺",
+description:"Create a global TV network.",
+price:12500000000000,
+income:320000000,
+upgrade:15000000000000,
+worker:17500000000000
+},
+
+{
+id:"animation",
+name:"Animation Studio",
+icon:"🎨",
+description:"Create animated movies and shows.",
+price:14000000000000,
+income:360000000,
+upgrade:16800000000000,
+worker:19600000000000
+},
+
+{
+id:"sportswear",
+name:"Sportswear Company",
+icon:"👕",
+description:"Create a global sports brand.",
+price:16000000000000,
+income:410000000,
+upgrade:19200000000000,
+worker:22400000000000
+},
+
+{
+id:"food_manufacturer",
+name:"Food Manufacturer",
+icon:"🥫",
+description:"Produce food for millions.",
+price:18000000000000,
+income:460000000,
+upgrade:21600000000000,
+worker:25200000000000
+},
+
+{
+id:"beverage",
+name:"Beverage Company",
+icon:"🥤",
+description:"Build a worldwide drinks empire.",
+price:20000000000000,
+income:520000000,
+upgrade:24000000000000,
+worker:28000000000000
+},
+
+{
+id:"chocolate",
+name:"Chocolate Manufacturer",
+icon:"🍫",
+description:"Become a chocolate giant.",
+price:22500000000000,
+income:580000000,
+upgrade:27000000000000,
+worker:31500000000000
+},
+
+{
+id:"pharmaceutical",
+name:"Pharmaceutical Company",
+icon:"💊",
+description:"Develop medicines and treatments.",
+price:25000000000000,
+income:650000000,
+upgrade:30000000000000,
+worker:35000000000000
+},
+
+{
+id:"biotech",
+name:"Biotechnology Company",
+icon:"🧬",
+description:"Research the science of tomorrow.",
+price:28000000000000,
+income:730000000,
+upgrade:33600000000000,
+worker:39200000000000
+},
+
+{
+id:"medical_equipment",
+name:"Medical Equipment Company",
+icon:"🩺",
+description:"Build advanced medical technology.",
+price:31000000000000,
+income:820000000,
+upgrade:37200000000000,
+worker:43400000000000
+},
+
+{
+id:"veterinary",
+name:"Veterinary Company",
+icon:"🐾",
+description:"Build a huge animal-care business.",
+price:34000000000000,
+income:900000000,
+upgrade:40800000000000,
+worker:47600000000000
+},
+
+{
+id:"space_technology",
+name:"Space Technology Company",
+icon:"🛰️",
+description:"Develop technology for space.",
+price:38000000000000,
+income:1000000000,
+upgrade:45600000000000,
+worker:53200000000000
+},
+
+{
+id:"satellite_company",
+name:"Global Satellite Company",
+icon:"📡",
+description:"Operate a huge satellite network.",
+price:42000000000000,
+income:1100000000,
+upgrade:50400000000000,
+worker:58800000000000
+},
+
+{
+id:"aerospace",
+name:"Aerospace Corporation",
+icon:"🚀",
+description:"Build advanced aircraft and spacecraft.",
+price:47000000000000,
+income:1250000000,
+upgrade:56400000000000,
+worker:65800000000000
+},
+
+{
+id:"steel",
+name:"Steel Company",
+icon:"🏭",
+description:"Produce steel on a massive scale.",
+price:52000000000000,
+income:1400000000,
+upgrade:62400000000000,
+worker:72800000000000
+},
+
+{
+id:"cement",
+name:"Cement Company",
+icon:"🏗️",
+description:"Supply materials for huge projects.",
+price:58000000000000,
+income:1550000000,
+upgrade:69600000000000,
+worker:81200000000000
+},
+
+{
+id:"mining",
+name:"Mining Company",
+icon:"⛏️",
+description:"Mine valuable resources.",
+price:64000000000000,
+income:1700000000,
+upgrade:76800000000000,
+worker:89600000000000
+},
+
+{
+id:"resources",
+name:"Energy Resources Company",
+icon:"🛢️",
+description:"Control major energy resources.",
+price:71000000000000,
+income:1900000000,
+upgrade:85200000000000,
+worker:99400000000000
+},
+
+{
+id:"railway",
+name:"Railway Company",
+icon:"🚆",
+description:"Operate railway networks.",
+price:78000000000000,
+income:2100000000,
+upgrade:93600000000000,
+worker:109200000000000
+},
+
+{
+id:"ferry",
+name:"Ferry Company",
+icon:"⛴️",
+description:"Transport passengers across the sea.",
+price:85000000000000,
+income:2300000000,
+upgrade:102000000000000,
+worker:119000000000000
+},
+
+{
+id:"warehouse",
+name:"Warehouse Company",
+icon:"🏭",
+description:"Store products for huge businesses.",
+price:93000000000000,
+income:2500000000,
+upgrade:111600000000000,
+worker:130200000000000
+},
+
+{
+id:"data_centre",
+name:"Data Centre Company",
+icon:"🖥️",
+description:"Power the digital world.",
+price:101000000000000,
+income:2750000000,
+upgrade:121200000000000,
+worker:141400000000000
+},
+
+{
+id:"search_engine",
+name:"Search Engine Company",
+icon:"🔎",
+description:"Help the world find information.",
+price:110000000000000,
+income:3000000000,
+upgrade:132000000000000,
+worker:154000000000000
+},
+
+{
+id:"social_network",
+name:"Social Network Company",
+icon:"💬",
+description:"Connect billions of users.",
+price:120000000000000,
+income:3300000000,
+upgrade:144000000000000,
+worker:168000000000000
+},
+
+{
+id:"streaming",
+name:"Streaming Company",
+icon:"📺",
+description:"Stream entertainment worldwide.",
+price:130000000000000,
+income:3600000000,
+upgrade:156000000000000,
+worker:182000000000000
+},
+
+{
+id:"music_streaming",
+name:"Music Streaming Company",
+icon:"🎧",
+description:"Stream music to millions.",
+price:140000000000000,
+income:3900000000,
+upgrade:168000000000000,
+worker:196000000000000
+},
+
+{
+id:"newspaper",
+name:"Newspaper Group",
+icon:"📰",
+description:"Build a global news network.",
+price:150000000000000,
+income:4200000000,
+upgrade:180000000000000,
+worker:210000000000000
+},
+
+{
+id:"book_publishing",
+name:"Book Publishing Group",
+icon:"📖",
+description:"Publish books around the world.",
+price:160000000000000,
+income:4500000000,
+upgrade:192000000000000,
+worker:224000000000000
+},
+
+{
+id:"record_label",
+name:"Record Label",
+icon:"🎵",
+description:"Build a global music empire.",
+price:170000000000000,
+income:4800000000,
+upgrade:204000000000000,
+worker:238000000000000
+},
+
+{
+id:"theatre",
+name:"Theatre Company",
+icon:"🎭",
+description:"Own theatres around the world.",
+price:180000000000000,
+income:5100000000,
+upgrade:216000000000000,
+worker:252000000000000
+},
+
+{
+id:"theme_park",
+name:"Theme Park Company",
+icon:"🎢",
+description:"Build incredible theme parks.",
+price:190000000000000,
+income:5500000000,
+upgrade:228000000000000,
+worker:266000000000000
+},
+
+{
+id:"water_park",
+name:"Water Park Company",
+icon:"🌊",
+description:"Own giant water parks.",
+price:200000000000000,
+income:5900000000,
+upgrade:240000000000000,
+worker:280000000000000
+},
+
+{
+id:"zoo",
+name:"Zoo Company",
+icon:"🦁",
+description:"Run major wildlife parks.",
+price:210000000000000,
+income:6300000000,
+upgrade:252000000000000,
+worker:294000000000000
+},
+
+{
+id:"aquarium",
+name:"Aquarium Company",
+icon:"🐠",
+description:"Own huge aquariums.",
+price:220000000000000,
+income:6700000000,
+upgrade:264000000000000,
+worker:308000000000000
+},
+
+{
+id:"cruise",
+name:"Cruise Company",
+icon:"🛳️",
+description:"Run luxury cruises worldwide.",
+price:235000000000000,
+income:7200000000,
+upgrade:282000000000000,
+worker:329000000000000
+},
+
+{
+id:"hotel_chain",
+name:"Hotel Chain",
+icon:"🏨",
+description:"Own hotels across the planet.",
+price:250000000000000,
+income:7800000000,
+upgrade:300000000000000,
+worker:350000000000000
+},
+
+{
+id:"restaurant_chain",
+name:"Restaurant Chain",
+icon:"🍽️",
+description:"Build a worldwide restaurant empire.",
+price:265000000000000,
+income:8400000000,
+upgrade:318000000000000,
+worker:371000000000000
+},
+
+{
+id:"supermarket_chain",
+name:"Supermarket Chain",
+icon:"🛒",
+description:"Own supermarkets everywhere.",
+price:280000000000000,
+income:9000000000,
+upgrade:336000000000000,
+worker:392000000000000
+},
+
+{
+id:"fashion_brand",
+name:"Fashion Brand",
+icon:"👔",
+description:"Build a worldwide fashion label.",
+price:295000000000000,
+income:9600000000,
+upgrade:354000000000000,
+worker:413000000000000
+},
+
+{
+id:"luxury_goods",
+name:"Luxury Goods Company",
+icon:"💎",
+description:"Sell luxury products worldwide.",
+price:310000000000000,
+income:10200000000,
+upgrade:372000000000000,
+worker:434000000000000
+},
+
+{
+id:"jewellery",
+name:"Jewellery Company",
+icon:"💍",
+description:"Create a luxury jewellery empire.",
+price:325000000000000,
+income:10800000000,
+upgrade:390000000000000,
+worker:455000000000000
+},
+
+{
+id:"watch",
+name:"Watch Company",
+icon:"⌚",
+description:"Build premium watches.",
+price:340000000000000,
+income:11400000000,
+upgrade:408000000000000,
+worker:476000000000000
+},
+
+{
+id:"cosmetics",
+name:"Cosmetics Company",
+icon:"💄",
+description:"Create a global cosmetics brand.",
+price:355000000000000,
+income:12000000000,
+upgrade:426000000000000,
+worker:497000000000000
+},
+
+{
+id:"skincare",
+name:"Skincare Company",
+icon:"🧴",
+description:"Build a worldwide skincare business.",
+price:370000000000000,
+income:12600000000,
+upgrade:444000000000000,
+worker:518000000000000
+},
+
+{
+id:"homeware",
+name:"Homeware Company",
+icon:"🏡",
+description:"Sell products for homes everywhere.",
+price:385000000000000,
+income:13200000000,
+upgrade:462000000000000,
+worker:539000000000000
+},
+
+{
+id:"appliances",
+name:"Home Appliance Company",
+icon:"🧺",
+description:"Build smart appliances.",
+price:400000000000000,
+income:13800000000,
+upgrade:480000000000000,
+worker:560000000000000
+},
+
+{
+id:"smart_devices",
+name:"Smart Devices Company",
+icon:"📱",
+description:"Create connected smart devices.",
+price:420000000000000,
+income:14500000000,
+upgrade:504000000000000,
+worker:588000000000000
+},
+
+{
+id:"semiconductor",
+name:"Semiconductor Company",
+icon:"💾",
+description:"Build the chips behind modern technology.",
+price:440000000000000,
+income:15200000000,
+upgrade:528000000000000,
+worker:616000000000000
+},
+
+{
+id:"chip_design",
+name:"Chip Design Company",
+icon:"🔬",
+description:"Design advanced computer chips.",
+price:460000000000000,
+income:15900000000,
+upgrade:552000000000000,
+worker:644000000000000
+},
+
+{
+id:"research",
+name:"Research Corporation",
+icon:"🔬",
+description:"Research technology of the future.",
+price:480000000000000,
+income:16600000000,
+upgrade:576000000000000,
+worker:672000000000000
+},
+
+{
+id:"robotics",
+name:"Robotics Corporation",
+icon:"🤖",
+description:"Build advanced robots.",
+price:500000000000000,
+income:17500000000,
+upgrade:600000000000000,
+worker:700000000000000
+},
+
+{
+id:"advanced_ai",
+name:"Advanced AI Corporation",
+icon:"🧠",
+description:"Develop next-generation AI.",
+price:550000000000000,
+income:19000000000,
+upgrade:660000000000000,
+worker:770000000000000
+},
+
+{
+id:"quantum",
+name:"Quantum Computing Company",
+icon:"⚛️",
+description:"Build the computers of tomorrow.",
+price:600000000000000,
+income:21000000000,
+upgrade:720000000000000,
+worker:840000000000000
+},
+
+{
+id:"global_cloud",
+name:"Global Cloud Corporation",
+icon:"☁️",
+description:"Power businesses around the world.",
+price:650000000000000,
+income:23000000000,
+upgrade:780000000000000,
+worker:910000000000000
+},
+
+{
+id:"global_cyber",
+name:"Global Cybersecurity Corporation",
+icon:"🔐",
+description:"Protect the world's digital systems.",
+price:700000000000000,
+income:25000000000,
+upgrade:840000000000000,
+worker:980000000000000
+},
+
+{
+id:"fintech",
+name:"Fintech Corporation",
+icon:"💳",
+description:"Build the future of financial technology.",
+price:750000000000000,
+income:27000000000,
+upgrade:900000000000000,
+worker:1050000000000000
+},
+
+{
+id:"payments",
+name:"Payments Corporation",
+icon:"💳",
+description:"Process payments around the world.",
+price:800000000000000,
+income:29000000000,
+upgrade:960000000000000,
+worker:1120000000000000
+},
+
+{
+id:"global_banking",
+name:"Global Banking Group",
+icon:"🏦",
+description:"Operate a worldwide financial empire.",
+price:850000000000000,
+income:31000000000,
+upgrade:1020000000000000,
+worker:1190000000000000
+},
+
+{
+id:"investment",
+name:"Investment Corporation",
+icon:"📈",
+description:"Invest across the global economy.",
+price:900000000000000,
+income:33000000000,
+upgrade:1080000000000000,
+worker:1260000000000000
+},
+
+{
+id:"global_real_estate",
+name:"Global Real Estate Group",
+icon:"🏙️",
+description:"Own properties around the world.",
+price:950000000000000,
+income:35000000000,
+upgrade:1140000000000000,
+worker:1330000000000000
+},
+
+{
+id:"global_media",
+name:"Global Media Corporation",
+icon:"📡",
+description:"Own media businesses worldwide.",
+price:1000000000000000,
+income:38000000000,
+upgrade:1200000000000000,
+worker:1400000000000000
+},
+
+{
+id:"global_entertainment",
+name:"Global Entertainment Corporation",
+icon:"🎬",
+description:"Create worldwide entertainment.",
+price:1100000000000000,
+income:42000000000,
+upgrade:1320000000000000,
+worker:1540000000000000
+},
+
+{
+id:"global_sports",
+name:"Global Sports Corporation",
+icon:"🏆",
+description:"Own major sporting businesses.",
+price:1200000000000000,
+income:46000000000,
+upgrade:1440000000000000,
+worker:1680000000000000
+},
+
+{
+id:"football",
+name:"Football Corporation",
+icon:"⚽",
+description:"Build a global football empire.",
+price:1300000000000000,
+income:50000000000,
+upgrade:1560000000000000,
+worker:1820000000000000
+},
+
+{
+id:"motorsport",
+name:"Motorsport Corporation",
+icon:"🏎️",
+description:"Control major racing businesses.",
+price:1400000000000000,
+income:54000000000,
+upgrade:1680000000000000,
+worker:1960000000000000
+},
+
+{
+id:"global_automotive",
+name:"Global Automotive Corporation",
+icon:"🚘",
+description:"Build vehicles for the entire planet.",
+price:1500000000000000,
+income:58000000000,
+upgrade:1800000000000000,
+worker:2100000000000000
+},
+
+{
+id:"global_ev",
+name:"Global EV Corporation",
+icon:"🔋",
+description:"Lead the electric vehicle industry.",
+price:1600000000000000,
+income:62000000000,
+upgrade:1920000000000000,
+worker:2240000000000000
+},
+
+{
+id:"global_battery",
+name:"Global Battery Corporation",
+icon:"🔋",
+description:"Power the future.",
+price:1700000000000000,
+income:66000000000,
+upgrade:2040000000000000,
+worker:2380000000000000
+},
+
+{
+id:"global_energy",
+name:"Global Energy Corporation",
+icon:"⚡",
+description:"Power countries around the world.",
+price:1800000000000000,
+income:70000000000,
+upgrade:2160000000000000,
+worker:2520000000000000
+},
+
+{
+id:"renewable",
+name:"Renewable Energy Corporation",
+icon:"🌱",
+description:"Build a massive clean-energy empire.",
+price:1900000000000000,
+income:74000000000,
+upgrade:2280000000000000,
+worker:2660000000000000
+},
+
+{
+id:"nuclear",
+name:"Nuclear Energy Corporation",
+icon:"⚛️",
+description:"Operate a huge energy business.",
+price:2000000000000000,
+income:78000000000,
+upgrade:2400000000000000,
+worker:2800000000000000
+},
+
+{
+id:"space_exploration",
+name:"Space Exploration Corporation",
+icon:"🚀",
+description:"Explore beyond Earth.",
+price:2200000000000000,
+income:85000000000,
+upgrade:2640000000000000,
+worker:3080000000000000
+},
+
+{
+id:"lunar",
+name:"Lunar Development Corporation",
+icon:"🌕",
+description:"Build businesses on the Moon.",
+price:2500000000000000,
+income:100000000000,
+upgrade:3000000000000000,
+worker:3500000000000000
+},
+
+{
+id:"mars",
+name:"Mars Development Corporation",
+icon:"🔴",
+description:"Develop the first giant Mars economy.",
+price:3000000000000000,
+income:125000000000,
+upgrade:3600000000000000,
+worker:4200000000000000
+},
+
+{
+id:"planetary",
+name:"Planetary Research Corporation",
+icon:"🪐",
+description:"Research planets across the solar system.",
+price:3500000000000000,
+income:150000000000,
+upgrade:4200000000000000,
+worker:4900000000000000
+},
+
+/* ================= GIANT COMPANIES ================= */
+
+{
+id:"nasa",
+name:"NASA",
+icon:"🚀",
+description:"Build a giant space exploration empire.",
+price:5000000000000000,
+income:220000000000,
+upgrade:6000000000000000,
+worker:7000000000000000
+},
+
+{
+id:"apple",
+name:"Apple",
+icon:"🍎",
+description:"Build a gigantic technology empire.",
+price:10000000000000000,
+income:500000000000,
+upgrade:12000000000000000,
+worker:14000000000000000
+},
+
+{
+id:"microsoft",
+name:"Microsoft",
+icon:"💻",
+description:"Build a global software and technology giant.",
+price:20000000000000000,
+income:1000000000000,
+upgrade:24000000000000000,
+worker:28000000000000000
+},
+
+{
+id:"amazon",
+name:"Amazon",
+icon:"📦",
+description:"Build a worldwide shopping and cloud empire.",
+price:40000000000000000,
+income:2200000000000,
+upgrade:48000000000000000,
+worker:56000000000000000
+},
+
+{
+id:"google",
+name:"Google",
+icon:"🔎",
+description:"Build a global technology and information empire.",
+price:80000000000000000,
+income:5000000000000,
+upgrade:96000000000000000,
+worker:112000000000000000
+},
+
+{
+id:"spacex",
+name:"SpaceX",
+icon:"🚀",
+description:"Build a massive private space empire.",
+price:150000000000000000,
+income:10000000000000,
+upgrade:180000000000000000,
+worker:210000000000000000
+},
+
+{
+id:"global_mega",
+name:"Global Mega Corporation",
+icon:"🌎",
+description:"The ultimate business empire.",
+price:500000000000000000,
+income:40000000000000,
+upgrade:600000000000000000,
+worker:700000000000000000
+}
+
 ];
 
 
-/* GAME DATA */
+/* =========================================================
+   CHECK
+========================================================= */
+
+console.log("RainyEmps businesses:", businesses.length);
+
+
+/* =========================================================
+   MARK BUSINESS IDS
+========================================================= */
+
+const markBusinessIds = [
+    "marks_surfing",
+    "marks_pizza",
+    "marks_gaming",
+    "marks_burger",
+    "marks_icecream",
+    "marks_rocket",
+    "marks_skate",
+    "marks_toys",
+    "marks_arcade",
+    "marks_beach",
+    "marks_cars",
+    "marks_bike",
+    "marks_movie",
+    "marks_pets",
+    "marks_cake"
+];
+
+
+/* =========================================================
+   GAME DATA
+========================================================= */
 
 let game = {
     money: 100,
@@ -747,21 +2604,40 @@ let game = {
 };
 
 
-/* LOAD SAVE */
+/* =========================================================
+   LOAD SAVE
+========================================================= */
 
 const savedGame = localStorage.getItem("rainyemps-save");
 
 if (savedGame) {
+
     try {
         game = JSON.parse(savedGame);
     }
+
     catch {
         console.log("Save failed.");
     }
+
+}
+
+if (!game.businesses) {
+    game.businesses = {};
+}
+
+if (!game.achievements) {
+    game.achievements = {};
+}
+
+if (!game.workers) {
+    game.workers = 0;
 }
 
 
-/* ADD NEW BUSINESSES TO EXISTING SAVES */
+/* =========================================================
+   ADD NEW BUSINESSES TO EXISTING SAVE
+========================================================= */
 
 businesses.forEach(business => {
 
@@ -778,35 +2654,47 @@ businesses.forEach(business => {
 });
 
 
-/* MONEY FORMAT */
+/* =========================================================
+   MONEY FORMAT
+========================================================= */
 
 function formatMoney(value) {
 
-    if (value >= 1000000000000000) {
-        return "£" + (value / 1000000000000000).toFixed(1) + "Q";
+    if (value >= 1e21) {
+        return "£" + (value / 1e21).toFixed(1) + "S";
     }
 
-    if (value >= 1000000000000) {
-        return "£" + (value / 1000000000000).toFixed(1) + "T";
+    if (value >= 1e18) {
+        return "£" + (value / 1e18).toFixed(1) + "E";
     }
 
-    if (value >= 1000000000) {
-        return "£" + (value / 1000000000).toFixed(1) + "B";
+    if (value >= 1e15) {
+        return "£" + (value / 1e15).toFixed(1) + "Q";
     }
 
-    if (value >= 1000000) {
-        return "£" + (value / 1000000).toFixed(1) + "M";
+    if (value >= 1e12) {
+        return "£" + (value / 1e12).toFixed(1) + "T";
     }
 
-    if (value >= 1000) {
-        return "£" + (value / 1000).toFixed(1) + "K";
+    if (value >= 1e9) {
+        return "£" + (value / 1e9).toFixed(1) + "B";
+    }
+
+    if (value >= 1e6) {
+        return "£" + (value / 1e6).toFixed(1) + "M";
+    }
+
+    if (value >= 1e3) {
+        return "£" + (value / 1e3).toFixed(1) + "K";
     }
 
     return "£" + Math.floor(value).toLocaleString();
 }
 
 
-/* TOTAL BUSINESSES */
+/* =========================================================
+   TOTAL BUSINESSES
+========================================================= */
 
 function totalBusinesses() {
 
@@ -819,7 +2707,37 @@ function totalBusinesses() {
 }
 
 
-/* INCOME */
+/* =========================================================
+   MARK BUSINESSES OWNED
+========================================================= */
+
+function markBusinessesOwned() {
+
+    return markBusinessIds.every(id => {
+
+        return game.businesses[id] &&
+               game.businesses[id].owned > 0;
+
+    });
+
+}
+
+
+function markBusinessCount() {
+
+    return markBusinessIds.filter(id => {
+
+        return game.businesses[id] &&
+               game.businesses[id].owned > 0;
+
+    }).length;
+
+}
+
+
+/* =========================================================
+   INCOME
+========================================================= */
 
 function getIncome() {
 
@@ -831,11 +2749,15 @@ function getIncome() {
 
         if (data.owned > 0) {
 
-            let amount = business.income * data.owned;
+            let amount =
+                business.income *
+                data.owned;
 
-            amount *= Math.pow(1.5, data.upgrades);
+            amount *=
+                Math.pow(1.5, data.upgrades);
 
-            amount *= 1 + (data.workers * 0.25);
+            amount *=
+                1 + (data.workers * 0.25);
 
             total += amount;
 
@@ -847,38 +2769,54 @@ function getIncome() {
 }
 
 
-/* BUY BUSINESS */
+/* =========================================================
+   BUY BUSINESS
+========================================================= */
 
 function buyBusiness(id) {
 
-    const business = businesses.find(b => b.id === id);
-    const data = game.businesses[id];
+    const business =
+        businesses.find(b => b.id === id);
+
+    const data =
+        game.businesses[id];
 
     if (game.money < business.price) {
 
         popup("❌ You don't have enough money!");
 
         return;
+
     }
 
     game.money -= business.price;
 
     data.owned++;
 
-    popup("🎉 You bought " + business.name + "!");
+    popup(
+        "🎉 You bought " +
+        business.name +
+        "!"
+    );
 
     save();
 
     render();
+
 }
 
 
-/* UPGRADE */
+/* =========================================================
+   UPGRADE
+========================================================= */
 
 function upgradeBusiness(id) {
 
-    const business = businesses.find(b => b.id === id);
-    const data = game.businesses[id];
+    const business =
+        businesses.find(b => b.id === id);
+
+    const data =
+        game.businesses[id];
 
     const price =
         business.upgrade *
@@ -886,29 +2824,42 @@ function upgradeBusiness(id) {
 
     if (game.money < price) {
 
-        popup("❌ You can't afford this upgrade!");
+        popup(
+            "❌ You can't afford this upgrade!"
+        );
 
         return;
+
     }
 
     game.money -= price;
 
     data.upgrades++;
 
-    popup("⬆️ " + business.name + " upgraded!");
+    popup(
+        "⬆️ " +
+        business.name +
+        " upgraded!"
+    );
 
     save();
 
     render();
+
 }
 
 
-/* HIRE */
+/* =========================================================
+   HIRE
+========================================================= */
 
 function hireWorker(id) {
 
-    const business = businesses.find(b => b.id === id);
-    const data = game.businesses[id];
+    const business =
+        businesses.find(b => b.id === id);
+
+    const data =
+        game.businesses[id];
 
     const price =
         business.worker *
@@ -916,9 +2867,12 @@ function hireWorker(id) {
 
     if (game.money < price) {
 
-        popup("❌ You can't afford another employee!");
+        popup(
+            "❌ You can't afford another employee!"
+        );
 
         return;
+
     }
 
     game.money -= price;
@@ -932,10 +2886,13 @@ function hireWorker(id) {
     save();
 
     render();
+
 }
 
 
-/* RENDER BUSINESSES */
+/* =========================================================
+   RENDER BUSINESSES
+========================================================= */
 
 function renderBusinesses() {
 
@@ -970,92 +2927,100 @@ function renderBusinesses() {
 
         card.innerHTML = `
 
-            <div class="business-head">
+        <div class="business-head">
 
-                <div>
+            <div>
 
-                    <div class="business-title">
-                        ${business.name}
-                    </div>
-
-                    <div class="description">
-                        ${business.description}
-                    </div>
-
+                <div class="business-title">
+                    ${business.name}
                 </div>
 
-                <div class="business-icon">
-                    ${business.icon}
+                <div class="description">
+                    ${business.description}
                 </div>
 
             </div>
 
-            <div class="info-grid">
-
-                <div class="info">
-                    <strong>${data.owned}</strong>
-                    Owned
-                </div>
-
-                <div class="info">
-                    <strong>
-                        ${formatMoney(currentIncome)}
-                    </strong>
-                    Per Second
-                </div>
-
-                <div class="info">
-                    <strong>${data.workers}</strong>
-                    Employees
-                </div>
-
+            <div class="business-icon">
+                ${business.icon}
             </div>
 
-            ${
-                data.owned === 0
+        </div>
 
-                ? `
+        <div class="info-grid">
 
-                <button
-                    class="buy"
-                    onclick="buyBusiness('${business.id}')"
-                    ${game.money < business.price ? "disabled" : ""}>
+            <div class="info">
+                <strong>
+                    ${data.owned}
+                </strong>
+                Owned
+            </div>
 
-                    🏢 Buy for
-                    ${formatMoney(business.price)}
+            <div class="info">
+                <strong>
+                    ${formatMoney(currentIncome)}
+                </strong>
+                Per Second
+            </div>
 
-                </button>
+            <div class="info">
+                <strong>
+                    ${data.workers}
+                </strong>
+                Employees
+            </div>
 
-                `
+        </div>
 
-                : `
+        ${
+            data.owned === 0
 
-                <div class="owned">
-                    ✓ You own ${data.owned}
-                </div>
+            ?
 
-                <button
-                    class="upgrade"
-                    onclick="upgradeBusiness('${business.id}')"
-                    ${game.money < upgradePrice ? "disabled" : ""}>
+            `
 
-                    ⬆️ Upgrade —
-                    ${formatMoney(upgradePrice)}
+            <button
+                class="buy"
+                onclick="buyBusiness('${business.id}')"
+                ${game.money < business.price ? "disabled" : ""}>
 
-                </button>
+                🏢 Buy for
+                ${formatMoney(business.price)}
 
-                <button
-                    class="worker"
-                    onclick="hireWorker('${business.id}')"
-                    ${game.money < workerPrice ? "disabled" : ""}>
+            </button>
 
-                    👷 Hire Employee —
-                    ${formatMoney(workerPrice)}
+            `
 
-                </button>
+            :
 
-                `
-            }
+            `
+
+            <div class="owned">
+                ✓ You own ${data.owned}
+            </div>
+
+            <button
+                class="upgrade"
+                onclick="upgradeBusiness('${business.id}')"
+                ${game.money < upgradePrice ? "disabled" : ""}>
+
+                ⬆️ Upgrade —
+                ${formatMoney(upgradePrice)}
+
+            </button>
+
+            <button
+                class="worker"
+                onclick="hireWorker('${business.id}')"
+                ${game.money < workerPrice ? "disabled" : ""}>
+
+                👷 Hire Employee —
+                ${formatMoney(workerPrice)}
+
+            </button>
+
+            `
+        }
 
         `;
 
@@ -1066,74 +3031,215 @@ function renderBusinesses() {
 }
 
 
-/* ACHIEVEMENTS */
+/* =========================================================
+   ACHIEVEMENTS
+========================================================= */
 
 const achievementData = [
 
-    {
-        id: "first",
-        icon: "🎉",
-        name: "First Business",
-        description: "Buy your first business.",
-        check: () => totalBusinesses() >= 1
-    },
+{
+id:"first",
+icon:"🎉",
+name:"First Business",
+description:"Buy your first business.",
+check:()=>totalBusinesses()>=1
+},
 
-    {
-        id: "five",
-        icon: "🏢",
-        name: "Business Empire",
-        description: "Own 5 businesses.",
-        check: () => totalBusinesses() >= 5
-    },
+{
+id:"five",
+icon:"🏢",
+name:"Business Empire",
+description:"Own 5 businesses.",
+check:()=>totalBusinesses()>=5
+},
 
-    {
-        id: "employee",
-        icon: "👷",
-        name: "Team Builder",
-        description: "Hire your first employee.",
-        check: () => game.workers >= 1
-    },
+{
+id:"ten",
+icon:"🏙️",
+name:"Growing Empire",
+description:"Own 10 businesses.",
+check:()=>totalBusinesses()>=10
+},
 
-    {
-        id: "thousand",
-        icon: "💷",
-        name: "£1K Club",
-        description: "Earn £1,000.",
-        check: () => game.totalEarned >= 1000
-    },
+{
+id:"twentyfive",
+icon:"🏢",
+name:"Corporate Giant",
+description:"Own 25 businesses.",
+check:()=>totalBusinesses()>=25
+},
 
-    {
-        id: "million",
-        icon: "💰",
-        name: "Millionaire",
-        description: "Earn £1 million.",
-        check: () => game.totalEarned >= 1000000
-    },
+{
+id:"fifty",
+icon:"🌆",
+name:"Mega Empire",
+description:"Own 50 businesses.",
+check:()=>totalBusinesses()>=50
+},
 
-    {
-        id: "billion",
-        icon: "👑",
-        name: "Billionaire",
-        description: "Earn £1 billion.",
-        check: () => game.totalEarned >= 1000000000
-    },
+{
+id:"hundred",
+icon:"💯",
+name:"Century Club",
+description:"Own 100 businesses.",
+check:()=>totalBusinesses()>=100
+},
 
-    {
-        id: "all",
-        icon: "🌎",
-        name: "Global Empire",
-        description: "Own every type of business.",
-        check: () =>
-            businesses.every(
-                business =>
-                    game.businesses[business.id].owned > 0
-            )
-    }
+{
+id:"onefifty",
+icon:"🏙️",
+name:"Corporate Kingdom",
+description:"Own 150 businesses.",
+check:()=>totalBusinesses()>=150
+},
+
+{
+id:"twohundred",
+icon:"🏆",
+name:"200 Business Empire",
+description:"Own all 200 businesses.",
+check:()=>totalBusinesses()>=200
+},
+
+{
+id:"employee",
+icon:"👷",
+name:"Team Builder",
+description:"Hire your first employee.",
+check:()=>game.workers>=1
+},
+
+{
+id:"employees25",
+icon:"👷",
+name:"Growing Workforce",
+description:"Hire 25 employees.",
+check:()=>game.workers>=25
+},
+
+{
+id:"employees100",
+icon:"👷",
+name:"Massive Workforce",
+description:"Hire 100 employees.",
+check:()=>game.workers>=100
+},
+
+{
+id:"thousand",
+icon:"💷",
+name:"£1K Club",
+description:"Earn £1,000.",
+check:()=>game.totalEarned>=1000
+},
+
+{
+id:"million",
+icon:"💰",
+name:"Millionaire",
+description:"Earn £1 million.",
+check:()=>game.totalEarned>=1000000
+},
+
+{
+id:"billion",
+icon:"💎",
+name:"Billionaire",
+description:"Earn £1 billion.",
+check:()=>game.totalEarned>=1000000000
+},
+
+{
+id:"trillion",
+icon:"🌌",
+name:"Trillionaire",
+description:"Earn £1 trillion.",
+check:()=>game.totalEarned>=1000000000000
+},
+
+{
+id:"quadrillion",
+icon:"💎",
+name:"Quadrillionaire",
+description:"Earn £1 quadrillion.",
+check:()=>game.totalEarned>=1000000000000000
+},
+
+/* MARK ACHIEVEMENTS */
+
+{
+id:"mark_first",
+icon:"🏄",
+name:"Mark's First Customer",
+description:"Buy your first Mark business.",
+check:()=>markBusinessCount()>=1
+},
+
+{
+id:"mark_five",
+icon:"🏢",
+name:"Mark's Competitor",
+description:"Own 5 Mark businesses.",
+check:()=>markBusinessCount()>=5
+},
+
+{
+id:"mark_ten",
+icon:"😰",
+name:"Mark Is Worried",
+description:"Own 10 Mark businesses.",
+check:()=>markBusinessCount()>=10
+},
+
+{
+id:"mark_all",
+icon:"👑",
+name:"You've Taken Over Mark's Businesses!",
+description:"Buy all 15 Mark businesses.",
+check:()=>markBusinessesOwned()
+},
+
+{
+id:"mark_surf",
+icon:"🏄",
+name:"Mark's Surfing Tycoon",
+description:"Buy Mark's Surfing Factory.",
+check:()=>game.businesses.marks_surfing.owned>0
+},
+
+{
+id:"mark_space",
+icon:"🚀",
+name:"Mark Goes to Space",
+description:"Buy Mark's Rocket Works.",
+check:()=>game.businesses.marks_rocket.owned>0
+},
+
+{
+id:"mark_cake",
+icon:"🎂",
+name:"Mark's Cake Boss",
+description:"Buy Mark's Cake Factory.",
+check:()=>game.businesses.marks_cake.owned>0
+},
+
+{
+id:"all",
+icon:"🌎",
+name:"Global Empire",
+description:"Own every type of business.",
+check:()=>businesses.every(
+    business =>
+    game.businesses[business.id].owned > 0
+)
+}
 
 ];
 
 
-/* RENDER ACHIEVEMENTS */
+/* =========================================================
+   RENDER ACHIEVEMENTS
+========================================================= */
 
 function renderAchievements() {
 
@@ -1152,7 +3258,9 @@ function renderAchievements() {
             !game.achievements[achievement.id]
         ) {
 
-            game.achievements[achievement.id] = true;
+            game.achievements[
+                achievement.id
+            ] = true;
 
             popup(
                 "🏆 Achievement unlocked: " +
@@ -1170,17 +3278,17 @@ function renderAchievements() {
 
         card.innerHTML = `
 
-            <div class="achievement-icon">
-                ${achievement.icon}
-            </div>
+        <div class="achievement-icon">
+            ${achievement.icon}
+        </div>
 
-            <div class="achievement-name">
-                ${achievement.name}
-            </div>
+        <div class="achievement-name">
+            ${achievement.name}
+        </div>
 
-            <div class="achievement-description">
-                ${achievement.description}
-            </div>
+        <div class="achievement-description">
+            ${achievement.description}
+        </div>
 
         `;
 
@@ -1191,45 +3299,58 @@ function renderAchievements() {
 }
 
 
-/* LEVEL */
+/* =========================================================
+   LEVEL
+========================================================= */
 
 function getLevel() {
 
     return Math.max(
         1,
         Math.floor(
-            Math.sqrt(game.totalEarned / 100)
+            Math.sqrt(
+                game.totalEarned / 100
+            )
         ) + 1
     );
 
 }
 
 
-/* LEVEL DISPLAY */
-
 function renderLevel() {
 
-    const level = getLevel();
+    const level =
+        getLevel();
 
-    document.getElementById("level").textContent =
-        level;
+    document.getElementById(
+        "level"
+    ).textContent = level;
 
     const progress =
         game.totalEarned % 10000;
 
-    document.getElementById("progress").style.width =
-        Math.min(100, progress / 100) + "%";
+    document.getElementById(
+        "progress"
+    ).style.width =
+        Math.min(
+            100,
+            progress / 100
+        ) + "%";
 
 }
 
 
-/* DAILY BONUS */
+/* =========================================================
+   DAILY BONUS
+========================================================= */
 
 function dailyBonus() {
 
-    const now = Date.now();
+    const now =
+        Date.now();
 
-    const day = 86400000;
+    const day =
+        86400000;
 
     if (
         game.lastBonus &&
@@ -1237,7 +3358,8 @@ function dailyBonus() {
     ) {
 
         const remaining =
-            day - (now - game.lastBonus);
+            day -
+            (now - game.lastBonus);
 
         const hours =
             Math.ceil(
@@ -1251,6 +3373,7 @@ function dailyBonus() {
         );
 
         return;
+
     }
 
     const bonus =
@@ -1271,10 +3394,13 @@ function dailyBonus() {
     save();
 
     render();
+
 }
 
 
-/* RANDOM EVENTS */
+/* =========================================================
+   RANDOM EVENTS
+========================================================= */
 
 function randomEvent() {
 
@@ -1282,40 +3408,43 @@ function randomEvent() {
         totalBusinesses() === 0 ||
         Math.random() > 0.08
     ) {
+
         return;
+
     }
 
-    const income = getIncome();
+    const income =
+        getIncome();
 
     const events = [
 
         {
-            text: "🔥 Your company went viral!",
-            amount: Math.max(
+            text:"🔥 Your company went viral!",
+            amount:Math.max(
                 100,
                 income * 20
             )
         },
 
         {
-            text: "🎉 A customer made a huge purchase!",
-            amount: Math.max(
+            text:"🎉 A customer made a huge purchase!",
+            amount:Math.max(
                 50,
                 income * 10
             )
         },
 
         {
-            text: "📈 Your company had a record day!",
-            amount: Math.max(
+            text:"📈 Your company had a record day!",
+            amount:Math.max(
                 150,
                 income * 30
             )
         },
 
         {
-            text: "🌧️ Rainy weather boosted your sales!",
-            amount: Math.max(
+            text:"🌧️ Rainy weather boosted your sales!",
+            amount:Math.max(
                 75,
                 income * 15
             )
@@ -1331,48 +3460,69 @@ function randomEvent() {
             )
         ];
 
-    game.money += event.amount;
+    game.money +=
+        event.amount;
 
-    game.totalEarned += event.amount;
+    game.totalEarned +=
+        event.amount;
 
     popup(
         event.text +
         " +" +
-        formatMoney(event.amount)
+        formatMoney(
+            event.amount
+        )
     );
 
     save();
 
     render();
+
 }
 
 
-/* POPUP */
+/* =========================================================
+   POPUP
+========================================================= */
 
 let popupTimer;
 
 function popup(text) {
 
     const box =
-        document.getElementById("popup");
+        document.getElementById(
+            "popup"
+        );
 
-    box.textContent = text;
+    box.textContent =
+        text;
 
-    box.classList.add("show");
+    box.classList.add(
+        "show"
+    );
 
-    clearTimeout(popupTimer);
+    clearTimeout(
+        popupTimer
+    );
 
     popupTimer =
-        setTimeout(() => {
+        setTimeout(
+            () => {
 
-            box.classList.remove("show");
+                box.classList.remove(
+                    "show"
+                );
 
-        }, 3000);
+            },
+            3000
+        );
 
 }
 
 
-/* SAVE */
+/* =========================================================
+   SAVE
+========================================================= */
 
 function save() {
 
@@ -1383,8 +3533,6 @@ function save() {
 
 }
 
-
-/* MANUAL SAVE */
 
 function manualSave() {
 
@@ -1397,7 +3545,9 @@ function manualSave() {
 }
 
 
-/* RESET */
+/* =========================================================
+   RESET
+========================================================= */
 
 function resetGame() {
 
@@ -1419,25 +3569,42 @@ function resetGame() {
 }
 
 
-/* RENDER */
+/* =========================================================
+   RENDER
+========================================================= */
 
 function render() {
 
-    document.getElementById("cash").textContent =
-        formatMoney(game.money);
+    document.getElementById(
+        "cash"
+    ).textContent =
+        formatMoney(
+            game.money
+        );
 
-    document.getElementById("income").textContent =
-        formatMoney(getIncome()) +
-        "/s";
+    document.getElementById(
+        "income"
+    ).textContent =
+        formatMoney(
+            getIncome()
+        ) + "/s";
 
-    document.getElementById("businessCount").textContent =
+    document.getElementById(
+        "businessCount"
+    ).textContent =
         totalBusinesses();
 
-    document.getElementById("workerCount").textContent =
+    document.getElementById(
+        "workerCount"
+    ).textContent =
         game.workers;
 
-    document.getElementById("totalEarned").textContent =
-        formatMoney(game.totalEarned);
+    document.getElementById(
+        "totalEarned"
+    ).textContent =
+        formatMoney(
+            game.totalEarned
+        );
 
     renderLevel();
 
@@ -1448,17 +3615,22 @@ function render() {
 }
 
 
-/* PASSIVE INCOME */
+/* =========================================================
+   PASSIVE INCOME
+========================================================= */
 
 setInterval(() => {
 
-    const income = getIncome();
+    const income =
+        getIncome();
 
     if (income > 0) {
 
-        game.money += income;
+        game.money +=
+            income;
 
-        game.totalEarned += income;
+        game.totalEarned +=
+            income;
 
         save();
 
@@ -1469,7 +3641,7 @@ setInterval(() => {
 }, 1000);
 
 
-/* RANDOM EVENTS EVERY 12 SECONDS */
+/* RANDOM EVENTS */
 
 setInterval(
     randomEvent,
@@ -1479,11 +3651,10 @@ setInterval(
 
 /* AUTO SAVE */
 
-setInterval(() => {
-
-    save();
-
-}, 5000);
+setInterval(
+    save,
+    5000
+);
 
 
 /* START */
